@@ -1,0 +1,34 @@
+{{= ftf.include("htmltag.html") }}
+<head>
+	{{= ftf.include("htmlhead.meta.html") }}
+	<!-- DEV-note: include page specific meta information after this comment -->
+
+	{{= ftf.include("htmlhead.styles.html") }}
+	{{= ftf.include("htmlhead.scripts.html") }}
+
+	<!-- DEV-note: include page specific styles and scripts after this comment -->
+	{{# partial.conditionalResources || ''}}
+</head>
+<body role="document" class="{{# partial.bodyClass || '' }}">
+
+    <div class="offcanvas offcanvas--fixed-height layout--default">
+        <div class="offcanvas__inner">
+            {{= ftf.include("framework/header.html") }}
+            <main class="content">
+                {{# partial.contentMain }}
+            </main>
+            {{= ftf.include("framework/footer.html") }}
+            <aside class="offcanvas__area offcanvas__area--left"> LEFT OFFCANVAS AREA </aside>
+            <aside class="offcanvas__area offcanvas__area--right"> RIGHT OFFCANVAS AREA </aside>
+            <a class="offcanvas__exit"></a>
+        </div>
+    </div>
+
+	<!-- DEV-note: optional offsite content that is independent from normal content flow  -->
+	{{# partial.contentOffsite || '' }}
+
+	{{= ftf.include("scripts.html") }}
+	{{= ftf.include("tracking.html") }}
+	<!-- DEV-note: include page specific scrips after this comment -->
+</body>
+</html>

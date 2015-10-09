@@ -1,0 +1,15 @@
+{{#each (limit data numPosts)}}
+<li class="fbPost">
+	<a class="fbPost__link" href="{{link}}" target="_blank">
+		{{#if full_picture}}
+        <figure class="fbPost__figure">
+			<img class="fbPost__image" src="{{full_picture}}">
+		</figure>
+		{{/if}}
+		<div class="fbPost__body">
+			<span class="fbPost__meta" title="{{created_time}}">{{#relativeTime created_time}}{{/relativeTime}}</span>
+			<p class="fbPost__paragraph">{{message}}</p>
+		</div>
+	</a>
+</li>
+{{/each}}
