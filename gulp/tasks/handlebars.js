@@ -12,7 +12,7 @@ gulp.task('handlebars', function(){
         .pipe( handlebars() )
         .pipe( wrap('Handlebars.template(<%= contents %>)') )
         .pipe( declare({
-            namespace: 'ui.configuration.data.tpl',
+            namespace: 'global.configuration.data.tpl',
             noRedeclare: true
         }))
         .pipe( concat('handlebars.templates.js') )
