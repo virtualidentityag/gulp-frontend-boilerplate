@@ -1,16 +1,15 @@
 {
-  "name": "StoFrontendFramework",
+  "name": "viFrontendFramework",
   "private": true,
   "dependencies": {
-    "jquery-legacy": "jquery#1.11.3",
     "jquery": "2.1.4",
     "normalize.css": "~3.0.3",
     "csshelper": "virtualidentityag/vi-css-helper",
     "enquire": "2.1.2",
-    "handlebars": "~3.0.3",
+    "handlebars": "~4.0.2",
     "jquery-debouncedwidth": "~1.1.0",
     "jquery.debouncedresize": "~1.0.1",
-    "modernizr": "~3.0.0",
+    "modernizr": "~3.1.0",
     "susy": "~2.2.6"
   },
   "devDependencies": {
