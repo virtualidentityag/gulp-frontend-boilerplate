@@ -3,6 +3,7 @@ var zetzer      = require('gulp-zetzer');
 var globule     = require('globule');
 var fs          = require('fs');
 var path        = require('path');
+var notify      = require("gulp-notify");
 var config      = require('./../config');
 
 
@@ -24,6 +25,12 @@ gulp.task('zetzer', ['indexr'], function(){
         '!' + config.global.src + '/index.html'
     ])
         .pipe( zetzer( zetzerConfig ) )
+        .on('error', notify.onError(function (error) {
+            return {
+                title: 'Zetzer Error',
+                message: error.message
+            };
+        }))
         .pipe( gulp.dest( config.global.dev ) );
 
 });
