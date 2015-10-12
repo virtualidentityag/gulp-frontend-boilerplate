@@ -34,8 +34,7 @@ gulp.task('lint:sass', function () {
 gulp.task('watch:sass', function () {
 
     gulp.watch([
-        config.global.src + '/resources/css/**/*.scss',
-        config.global.src + '/resources/css/**/.*.scss'
+        config.global.src + '/resources/css/**/*.scss'
     ], ['sass']);
 
 });

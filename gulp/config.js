@@ -33,7 +33,7 @@ module.exports = {
                 return '_assets/generated/' + splitSrc.join() + '_' + width + 'x' + height + '.' + fileEnding;
             },
             link: function() {
-                return 'www.virtual-identity.com';
+                return 'http://www.virtual-identity.com';
             },
             renderHbs: function() {
                 console.log('TODO: zetzer->renderHbs()');
