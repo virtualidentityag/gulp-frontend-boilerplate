@@ -15,6 +15,7 @@ gulp.task('build:dev', function(callback) {runSequence(
     ],
     [
         'lint:sass',
+        'lint:json',
         'jshint',
         'iconfont'
     ],
@@ -81,7 +82,8 @@ gulp.task('serve', function(callback) {runSequence(
         'watch:zetzer',
         'watch:sass',
         'watch:js',
-        'watch:handlebars'
+        'watch:handlebars',
+        'watch:json'
     ],
     callback
 
