@@ -17,3 +17,13 @@ gulp.task('jshint', function() {
         .pipe( jshint.reporter(stylish) );
 
 });
+
+gulp.task('watch:jshint', function () {
+
+    gulp.watch([
+        config.global.src + '/resources/js/**/*.js',
+        '!' + config.global.src + '/resources/js/vendor/**/*.js',
+        '!' + config.global.src + '/resources/bower_components/**/*.js'
+    ], ['jshint']);
+
+});
