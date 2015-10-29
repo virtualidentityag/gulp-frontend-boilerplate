@@ -1,10 +1,10 @@
-var gulp        = require('gulp');
-var zetzer      = require('gulp-zetzer');
-var globule     = require('globule');
-var fs          = require('fs');
-var path        = require('path');
-var notify      = require("gulp-notify");
-var config      = require('./../config');
+var gulp    = require('gulp');
+var zetzer  = require('gulp-zetzer');
+var globule = require('globule');
+var fs      = require('fs');
+var path    = require('path');
+var notify  = require("gulp-notify");
+var config  = require('./../config');
 
 
 gulp.task('zetzer', ['indexr'], function(){
@@ -17,7 +17,7 @@ gulp.task('zetzer', ['indexr'], function(){
     var icons = globule.find( config.global.src + '/_icons/*.svg' );
     for(var index in icons) {
         var file = path.parse(icons[index]);
-        zetzerConfig.env.icons.push(file.name);
+        zetzerConfig.env.icons.push(file.name.toLowerCase());
     }
 
     return gulp.src( [
