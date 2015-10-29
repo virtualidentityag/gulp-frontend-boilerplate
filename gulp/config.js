@@ -66,8 +66,7 @@ module.exports = {
         fontName: 'Icons',
         appendUnicode: true,
         timestamp: Math.round(Date.now()/1000),
-        normalize: true,
-        fontHeight: 1001
+        normalize: true
     },
 
     iconfontCss: {
