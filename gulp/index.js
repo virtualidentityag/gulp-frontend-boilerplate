@@ -27,7 +27,8 @@ gulp.task('build:dev', function(callback) {runSequence(
         'copy:dev:js:vendor'
     ],
     [
-        'modernizr'
+        'modernizr',
+        'htmlhint'
     ],
     callback
 
@@ -81,9 +82,10 @@ gulp.task('serve', function(callback) {runSequence(
         'livereload',
         'watch:zetzer',
         'watch:sass',
-        'watch:js',
+        'watch:jshint',
         'watch:handlebars',
-        'watch:json'
+        'watch:json',
+        'watch:html'
     ],
     callback
 
