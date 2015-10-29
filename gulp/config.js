@@ -49,7 +49,12 @@ module.exports = {
         browsers: ['last 1 version']
     },
 
-    modernizr: {},
+    modernizr: {
+        options : [
+            "setClasses",
+            "addTest"
+        ]
+    },
 
     uglify: {},
 
