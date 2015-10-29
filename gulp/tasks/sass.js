@@ -24,7 +24,7 @@ gulp.task('sass', function () {
 gulp.task('lint:sass', function () {
 
     return gulp.src( config.global.src + 'resources/css/**/*.s+(a|c)ss')
-        .pipe( cached('jshint') )
+        .pipe( cached('sass') )
         .pipe( sassLint())
         .pipe( sassLint.format())
         .pipe( sassLint.failOnError());
