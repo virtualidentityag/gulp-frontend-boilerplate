@@ -47,7 +47,10 @@ gulp.task('copy:dist:flash', function() {
 
 gulp.task('copy:dist:fonts', function() {
 
-    return gulp.src( config.global.src + '/resources/fonts/**/*' )
+    return gulp.src([
+        config.global.src + '/resources/fonts/**/*',
+        config.global.dev + '/resources/fonts/**/*'
+    ])
         .pipe( gulp.dest( config.global.dist + '/resources/fonts/' ) );
 
 });
