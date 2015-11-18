@@ -20,10 +20,12 @@ gulp.task('build:dev', function(callback) {runSequence(
         'iconfont'
     ],
     [
+        'handlebars'
+    ],
+    [
         'zetzer',
         'sass',
         'indexr',
-        'handlebars',
         'copy:dev:js:vendor'
     ],
     [
