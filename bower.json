@@ -6,7 +6,7 @@
     "normalize.css": "~3.0.3",
     "csshelper": "virtualidentityag/vi-css-helper",
     "enquire": "2.1.2",
-    "handlebars": "~4.0.2",
+    "handlebars": "~3.0.3",
     "jquery-debouncedwidth": "~1.1.0",
     "jquery.debouncedresize": "~1.0.1",
     "modernizr": "~3.1.0",
