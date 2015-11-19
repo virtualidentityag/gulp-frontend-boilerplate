@@ -15,7 +15,9 @@ gulp.task('handlebars', function(){
         config.global.src + '/resources/templates/**/_*.hbs'
     ])
         .pipe( plumber() )
-        .pipe( handlebars() )
+        .pipe( handlebars({
+            handlebars: require('handlebars')
+        }) )
         .pipe( wrap( config.handlebars.partialWrap , {}, {
             imports: {
                 processPartialName: function(fileName) {
@@ -30,7 +32,9 @@ gulp.task('handlebars', function(){
         config.global.src + '/resources/templates/**/[^_]*.hbs'
     ])
         .pipe( plumber() )
-        .pipe( handlebars() )
+        .pipe( handlebars({
+            handlebars: require('handlebars')
+        }) )
         .pipe( wrap( config.handlebars.templateWrap ) )
         .pipe( declare({
             namespace: config.handlebars.namespace,
