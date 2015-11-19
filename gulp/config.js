@@ -42,14 +42,13 @@ module.exports = {
             },
 
             renderHbs: function(template, data) {
-
                 var hbs = '../'+dev+'/resources/js/handlebars.templates.js';
                 delete require.cache[require.resolve(hbs)];
                 require(hbs);
 
                 try {
                     // is data valid JSON
-                    JSON.parse(data);
+                    data = JSON.parse(data);
                 } catch (e) {
 
                     try {
