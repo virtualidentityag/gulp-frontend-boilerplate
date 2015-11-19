@@ -18,7 +18,10 @@ gulp.task('livereload', function () {
         config.global.src + '/_mock/**/*',
         config.global.src + '/_assets/**/*',
         '!' + config.global.dev + '/resources/js/handlebars.templates.js'
-    ], function(file) {
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, function(file) {
         gulp.src( file.path )
             .pipe( cached('livereload') )
             .pipe( gulpLivereload() );

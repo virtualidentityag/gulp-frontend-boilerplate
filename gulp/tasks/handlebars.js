@@ -54,6 +54,9 @@ gulp.task('watch:handlebars', function () {
     gulp.watch([
         config.global.src + '/resources/templates/**/*.hbs',
         config.global.src + '/resources/js/handlebars.helper.js'
-    ], ['handlebars']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['handlebars']);
 
 });

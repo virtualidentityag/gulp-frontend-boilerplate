@@ -86,6 +86,9 @@ gulp.task('watch:zetzer', function () {
         config.global.src + '/_partials/**/*.html',
         config.global.src + '/_mock/**/*.json',
         config.global.dev + '/resources/js/handlebars.templates.js'
-    ], ['zetzer']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['zetzer']);
 
 });

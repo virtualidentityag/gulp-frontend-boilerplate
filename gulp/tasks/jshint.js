@@ -24,6 +24,9 @@ gulp.task('watch:jshint', function () {
         config.global.src + '/resources/js/**/*.js',
         '!' + config.global.src + '/resources/js/vendor/**/*.js',
         '!' + config.global.src + '/resources/bower_components/**/*.js'
-    ], ['jshint']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['jshint']);
 
 });

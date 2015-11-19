@@ -35,6 +35,9 @@ gulp.task('watch:sass', function () {
 
     gulp.watch([
         config.global.src + '/resources/css/**/*.scss'
-    ], ['sass']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['sass']);
 
 });
