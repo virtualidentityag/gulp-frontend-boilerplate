@@ -9,6 +9,7 @@ gulp.task('default', ['serve']);
 // build templates for development
 gulp.task('build:dev', function(callback) {runSequence(
 
+    'checkDependencies',
     [
         'clean:dev',
         'clean:iconfont'
