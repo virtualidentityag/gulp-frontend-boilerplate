@@ -8,6 +8,7 @@ var merge      = require('merge-stream');
 var plumber    = require('gulp-plumber');
 var config     = require('./../config');
 
+
 gulp.task('handlebars', function(){
 
     // Assume all partials start with an underscore

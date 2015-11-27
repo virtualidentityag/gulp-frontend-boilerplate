@@ -25,6 +25,7 @@ gulp.task('livereload', function () {
         gulp.src( file.path )
             .pipe( cached('livereload') )
             .pipe( gulpLivereload() );
+
     });
 
 });
