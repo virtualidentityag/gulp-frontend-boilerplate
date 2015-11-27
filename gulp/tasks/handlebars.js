@@ -8,7 +8,6 @@ var merge      = require('merge-stream');
 var plumber    = require('gulp-plumber');
 var config     = require('./../config');
 
-
 gulp.task('handlebars', function(){
 
     // Assume all partials start with an underscore
@@ -16,8 +15,10 @@ gulp.task('handlebars', function(){
         config.global.src + '/resources/templates/**/_*.hbs'
     ])
         .pipe( plumber() )
-        .pipe( handlebars() )
-        .pipe( wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
+        .pipe( handlebars({
+            handlebars: require('handlebars')
+        }) )
+        .pipe( wrap( config.handlebars.partialWrap , {}, {
             imports: {
                 processPartialName: function(fileName) {
                     // Strip the extension and the underscore
@@ -31,16 +32,19 @@ gulp.task('handlebars', function(){
         config.global.src + '/resources/templates/**/[^_]*.hbs'
     ])
         .pipe( plumber() )
-        .pipe( handlebars() )
-        .pipe( wrap('Handlebars.template(<%= contents %>)') )
+        .pipe( handlebars({
+            handlebars: require('handlebars')
+        }) )
+        .pipe( wrap( config.handlebars.templateWrap ) )
         .pipe( declare({
-            namespace: 'global.configuration.data.tpl',
-            noRedeclare: true
+            namespace: config.handlebars.namespace,
+            noRedeclare: config.handlebars.noRedeclare
         }));
 
     // Output both the partials and the templates
     return merge(partials, templates)
         .pipe( concat('handlebars.templates.js') )
+        .pipe( wrap('(function (root, factory) {if (typeof module === \'object\' && module.exports) {module.exports = factory(require(\'handlebars\'));} else {factory(root.Handlebars);}}(this, function (Handlebars) { <%= contents %> }));') )
         .pipe( gulp.dest( config.global.dev + '/resources/js/' ));
 
 });
@@ -50,6 +54,9 @@ gulp.task('watch:handlebars', function () {
     gulp.watch([
         config.global.src + '/resources/templates/**/*.hbs',
         config.global.src + '/resources/js/handlebars.helper.js'
-    ], ['handlebars']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['handlebars']);
 
 });

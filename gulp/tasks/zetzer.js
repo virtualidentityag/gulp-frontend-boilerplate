@@ -83,7 +83,12 @@ gulp.task('watch:zetzer', function () {
 
     gulp.watch([
         config.global.src + '/*.html',
-        config.global.src + '/_partials/**/*.html'
-    ], ['zetzer']);
+        config.global.src + '/_partials/**/*.html',
+        config.global.src + '/_mock/**/*.json',
+        config.global.dev + '/resources/js/handlebars.templates.js'
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['zetzer']);
 
 });

@@ -19,6 +19,9 @@ gulp.task('watch:json', function () {
 
     gulp.watch([
         config.global.src + '/_mock/**/*.json'
-    ], ['lint:json']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['lint:json']);
 
 });

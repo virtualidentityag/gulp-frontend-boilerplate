@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var src  = 'app';
 var dev  = '.tmp';
 var dist = 'dist';
@@ -10,6 +12,11 @@ module.exports = {
         dist: dist
     },
 
+    watch: {
+        interval: 500,
+        debounceDelay: 750
+    },
+
     zetzer: {
         partials: src + '/_partials',
         templates: src + '/_partials/layout',
@@ -19,6 +26,7 @@ module.exports = {
         },
         env: {
             package: require('./../package.json'),
+
             text: function(count, max) {
                 if(max !== 0 && typeof max !== 'undefined' && max > count) {
                     count = Math.floor(Math.random() * max) + count;
@@ -27,17 +35,40 @@ module.exports = {
                 text = text + text + text;
                 return text.substr(0, count);
             },
+
             img: function(width, height, src) {
                 var splitSrc = src.split('.');
                 var fileEnding = splitSrc.pop();
                 return '_assets/generated/' + splitSrc.join() + '_' + width + 'x' + height + '.' + fileEnding;
             },
+
             link: function() {
                 return 'http://www.virtual-identity.com';
             },
-            renderHbs: function() {
-                console.log('TODO: zetzer->renderHbs()');
+
+            renderHbs: function(template, data) {
+                var hbs = '../'+dev+'/resources/js/handlebars.templates.js';
+                delete require.cache[require.resolve(hbs)];
+                require(hbs);
+
+                try {
+                    // is data valid JSON
+                    data = JSON.parse(data);
+                } catch (e) {
+
+                    try {
+                        //is data a JSON file
+                        var jsonString = fs.readFileSync(data, 'utf8');
+                        data = JSON.parse(jsonString);
+                    } catch (e) {
+                        return '';
+                    }
+
+                }
+
+                return global.configuration.data.tpl[template](data);
             },
+
             delayedImage: function() {
                 console.log('TODO: zetzer->delayedImage()');
             }
@@ -79,6 +110,13 @@ module.exports = {
 
     connect: {
         port: 9000
+    },
+
+    handlebars: {
+        templateWrap: 'Handlebars.template(<%= contents %>)',
+        partialWrap: 'Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));',
+        namespace: 'global.configuration.data.tpl',
+        noRedeclare: true
     }
 
 };

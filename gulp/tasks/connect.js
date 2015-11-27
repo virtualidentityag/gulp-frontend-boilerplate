@@ -16,13 +16,15 @@ gulp.task('livereload', function () {
         config.global.src + '/resources/js/**/*.js',
         config.global.src + '/resources/bower_components/**/*',
         config.global.src + '/_mock/**/*',
-        config.global.src + '/_assets/**/*'
-    ], function(file) {
-
+        config.global.src + '/_assets/**/*',
+        '!' + config.global.dev + '/resources/js/handlebars.templates.js'
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, function(file) {
         gulp.src( file.path )
             .pipe( cached('livereload') )
             .pipe( gulpLivereload() );
-
     });
 
 });

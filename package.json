@@ -44,6 +44,7 @@
     "gulp-useref": "^3.0.0",
     "gulp-wrap": "^0.11.0",
     "gulp-zetzer": "^1.0.4",
+    "handlebars": "^4.0.4",
     "htmlhint-stylish": "^1.0.3",
     "jshint-stylish": "^2.0.1",
     "merge-stream": "^1.0.0",
@@ -53,6 +54,6 @@
     "serve-static": "^1.10.0"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=0.12.7"
   }
 }

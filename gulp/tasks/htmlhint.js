@@ -17,6 +17,9 @@ gulp.task('watch:html', function () {
 
     gulp.watch([
         config.global.dev + '/*.html'
-    ], ['htmlhint']);
+    ], {
+        interval: config.watch.interval,
+        debounceDelay: config.watch.debounceDelay
+    }, ['htmlhint']);
 
 });
