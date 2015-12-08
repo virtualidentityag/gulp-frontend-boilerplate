@@ -47,6 +47,7 @@ module.exports = {
             },
 
             renderHbs: function(template, data) {
+				require('../'+src+'/resources/js/handlebars.helper.js');
                 var hbs = '../'+dev+'/resources/js/handlebars.templates.js';
                 delete require.cache[require.resolve(hbs)];
                 require(hbs);
