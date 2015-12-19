@@ -17,13 +17,11 @@ gulp.task('useref', function () {
 
 gulp.task('useref:assets', function () {
 
-    var assets = useref.assets();
     return gulp.src( config.global.src + '/resources/_useref.html')
         .pipe( zetzer( config.zetzer ) )
-        .pipe( assets )
+        .pipe( useref() )
         .pipe( gulpif('*.js', uglify( config.uglify )) )
         .pipe( gulpif('*.css', minifyCss( config.minifyCss )) )
-        .pipe( assets.restore() )
         .pipe( gulp.dest( config.global.dist ) );
 
 });
