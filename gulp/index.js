@@ -68,7 +68,7 @@ gulp.task('build', function(callback) {runSequence(
     ],
     [
         'clean:useref',
-        'stylestats'
+        'cssstats'
     ],
     callback
 
