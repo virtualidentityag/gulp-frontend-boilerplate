@@ -7,6 +7,7 @@ $hamburger-pad: 0px;                     // The left/right padding between butto
 $hamburger-bar-space: 12px;              // The spacing between button bars
 $hamburger-transition-duration: 400ms;   // The transition duration
 $hamburger-bar-color: $black;            // The bar color
+$hamburger-transition-timing: ease-in-out;
 
 /**
  * ToDos
@@ -53,6 +54,7 @@ $hamburger-bar-color: $black;            // The bar color
             height: $hamburger-bar-thickness;
             background-color: $hamburger-bar-color;
             content: "";
+            transform: rotate(0deg);
         }
 
         &:before {
@@ -66,39 +68,32 @@ $hamburger-bar-color: $black;            // The bar color
 
     &--htx {
         .hamburger__bar {
-            transition: background 0s $hamburger-transition-duration;
-
-            &:before,
-            &:after {
-                transition-duration: $hamburger-transition-duration, $hamburger-transition-duration;
-                transition-delay: $hamburger-transition-duration, 0s;
-            }
+            transition: background 0s $hamburger-transition-timing $hamburger-transition-duration;
 
             &:before {
-                transition-property: top, transform;
+                transition: top $hamburger-transition-duration $hamburger-transition-timing $hamburger-transition-duration, transform $hamburger-transition-duration $hamburger-transition-timing;
             }
 
             &:after {
-                transition-property: bottom, transform;
+                transition: bottom $hamburger-transition-duration $hamburger-transition-timing $hamburger-transition-duration, transform $hamburger-transition-duration $hamburger-transition-timing;
             }
         }
 
         &.is-active {
             .hamburger__bar {
-                background: none;
-
-                &:before,
-                &:after {
-                    transition-delay: 0s, $hamburger-transition-duration;
-                }
+                background-color: transparent;
 
                 &:before {
                     top: 0;
+
+                    transition: top $hamburger-transition-duration $hamburger-transition-timing, transform $hamburger-transition-duration $hamburger-transition-timing $hamburger-transition-duration;
                     transform: rotate(45deg);
                 }
 
                 &:after {
                     bottom: 0;
+
+                    transition: bottom $hamburger-transition-duration $hamburger-transition-timing, transform $hamburger-transition-duration $hamburger-transition-timing $hamburger-transition-duration;
                     transform: rotate(-45deg);
                 }
             }
