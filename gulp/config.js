@@ -85,7 +85,8 @@ module.exports = {
         options : [
             "setClasses",
             "addTest"
-        ]
+        ],
+	excludeTests: ['hidden']
     },
 
     uglify: {},
