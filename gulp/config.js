@@ -89,7 +89,9 @@ module.exports = {
 	excludeTests: ['hidden']
     },
 
-    uglify: {},
+    uglify: {
+        preserveComments: 'license'
+    },
 
     minifyCss: {},
 
