@@ -1,64 +1,67 @@
 @font-face {
-	font-family: "<%= fontName %>";
-	src: url('<%= fontPath %><%= fontName %>.eot');
-	src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
-        url('<%= fontPath %><%= fontName %>.woff') format('woff'),
-		url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
-		url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
-}
-
-[class*="icon-"] {
     font-family: "<%= fontName %>";
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
-    text-decoration: none;
-    text-transform: none;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    src: url('<%= fontPath %><%= fontName %>.eot');
+    src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+    url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+    url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+    url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
 }
 
 @mixin icon-styles {
-	font-family: "<%= fontName %>";
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
-	text-decoration: none;
-	text-transform: none;
+    position: relative;
+    font-family: "<%= fontName %>";
+    font-size: 68%;
+    line-height: 1;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: none;
+    speak: none;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-%icon {
-	@include icon-styles;
-}
-
 @function icon-char($filename) {
-	$char: "";
+    $char: "";
 <% _.each(glyphs, function(glyph) { %>
-	@if $filename == <%= glyph.fileName %> {
-		$char: "\<%= glyph.codePoint %>";
-	}<% }); %>
+@if $filename == to-lower-case("<%= glyph.fileName %>") {
+$char: "\<%= glyph.codePoint %>";
+}<% }); %>
 
-	@return $char;
+    @return $char;
 }
 
-@mixin icon($filename, $insert: before, $extend: true) {
-	&:#{$insert} {
-		//@if $extend {
-		//	@extend %icon;
-		//} @else {
-		//	@include icon-styles;
-		//}
-		content: icon-char($filename);
-	}
+@mixin icon-special-treatment($filename) {
+    // add default modifications to specific icons here
+
+    //@if $filename == "chevron-right" {
+    //    font-size: 40%;
+    //}
 }
 
-<% _.each(glyphs, function(glyph) { %>.icon-<%= glyph.fileName %> {
-	@include icon(<%= glyph.fileName %>);
+@mixin icon($filename, $extend: false, $special: true) {
+    @if $extend {
+        @include icon-styles;
+    }
+    content: icon-char($filename);
+
+    @if $special {
+        @include icon-special-treatment($filename);
+    }
 }
+
+[class^="icon-"], [class*=" icon-"] {
+    &:before {
+        @include icon-styles;
+    }
+}
+
+<% _.each(glyphs, function(glyph) { %>
+    .icon-#{to-lower-case("<%= glyph.fileName %>")} {
+        &:before {
+            @include icon(to-lower-case("<%= glyph.fileName %>"));
+        }
+    }
 <% }); %>
