@@ -1,7 +1,6 @@
 <h1>Full Iconset</h1>
 {{ for(var prop in ftf.icons) { }}
-    <div style="margin-top:30px;font-size:32px;">
-        <span class="icon-{{= ftf.icons[prop]}}" style="width:30px;display:inline-block;"></span>
-        <span style="position:relative;top:-4px;">.icon-{{= ftf.icons[prop]}}</span>
-    </div>
+<div class="icon-{{= ftf.icons[prop]}}">
+    Icon-Klasse = ".icon-{{= ftf.icons[prop]}}"
+</div>
 {{ } }}
