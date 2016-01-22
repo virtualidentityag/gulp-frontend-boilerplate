@@ -1,12 +1,14 @@
-var gulp       = require('gulp');
-var path       = require('path');
+var gulp = require('gulp');
+var path = require('path');
 var handlebars = require('gulp-handlebars');
-var wrap       = require('gulp-wrap');
-var declare    = require('gulp-declare');
-var concat     = require('gulp-concat');
-var merge      = require('merge-stream');
-var plumber    = require('gulp-plumber');
-var config     = require('./../config');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
+var concat = require('gulp-concat');
+var merge = require('merge-stream');
+var plumber = require('gulp-plumber');
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('handlebars', function(){
@@ -52,12 +54,11 @@ gulp.task('handlebars', function(){
 
 gulp.task('watch:handlebars', function () {
 
-    gulp.watch([
+    watch([
         config.global.src + '/resources/templates/**/*.hbs',
         config.global.src + '/resources/js/handlebars.helper.js'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['handlebars']);
+    ], function() {
+        runSequence( 'handlebars' );
+    });
 
 });

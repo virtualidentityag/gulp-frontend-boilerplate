@@ -1,10 +1,12 @@
-var gulp    = require('gulp');
-var zetzer  = require('gulp-zetzer');
+var gulp = require('gulp');
+var zetzer = require('gulp-zetzer');
 var globule = require('globule');
-var fs      = require('fs');
-var path    = require('path');
-var notify  = require("gulp-notify");
-var config  = require('./../config');
+var fs = require('fs');
+var path = require('path');
+var notify = require("gulp-notify");
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('zetzer', ['indexr'], function(){
@@ -81,14 +83,13 @@ gulp.task('indexr', function(){
 
 gulp.task('watch:zetzer', function () {
 
-    gulp.watch([
+    watch([
         config.global.src + '/*.html',
         config.global.src + '/_partials/**/*.html',
         config.global.src + '/_mock/**/*.json',
         config.global.dev + '/resources/js/handlebars.templates.js'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['zetzer']);
+    ], function() {
+        runSequence( 'zetzer' );
+    });
 
 });

@@ -1,27 +1,27 @@
-var gulp              = require('gulp');
-var connect           = require('connect');
+var gulp = require('gulp');
+var connect = require('connect');
 var connectLivereload = require('connect-livereload');
-var opn               = require('opn');
-var gulpLivereload    = require('gulp-livereload');
-var serveStatic       = require('serve-static');
-var cached            = require('gulp-cached');
-var config            = require('./../config');
+var opn = require('opn');
+var gulpLivereload = require('gulp-livereload');
+var serveStatic = require('serve-static');
+var cached = require('gulp-cached');
+var watch = require('gulp-watch');
+var config = require('./../config');
 
 
 gulp.task('livereload', function () {
 
     gulpLivereload.listen();
-    gulp.watch([
+
+    watch([
         config.global.dev + '/**/*',
         config.global.src + '/resources/js/**/*.js',
         config.global.src + '/resources/bower_components/**/*',
         config.global.src + '/_mock/**/*',
         config.global.src + '/_assets/**/*',
         '!' + config.global.dev + '/resources/js/handlebars.templates.js'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, function(file) {
+    ], function(file) {
+
         gulp.src( file.path )
             .pipe( cached('livereload') )
             .pipe( gulpLivereload() );

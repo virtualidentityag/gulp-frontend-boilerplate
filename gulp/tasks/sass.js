@@ -1,10 +1,12 @@
-var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var sassLint     = require('gulp-sass-lint');
-var postcss      = require('gulp-postcss');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sassLint = require('gulp-sass-lint');
+var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
-var cached       = require('gulp-cached');
-var config       = require('./../config');
+var cached = require('gulp-cached');
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('sass', function () {
@@ -33,11 +35,10 @@ gulp.task('lint:sass', function () {
 
 gulp.task('watch:sass', function () {
 
-    gulp.watch([
+    watch([
         config.global.src + '/resources/css/**/*.scss'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['sass']);
+    ], function() {
+        runSequence( 'sass' );
+    });
 
 });
