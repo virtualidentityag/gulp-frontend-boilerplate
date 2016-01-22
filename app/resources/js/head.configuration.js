@@ -21,7 +21,7 @@
 	global.configuration.set = function(key, value) {
 		var tempKeys = key.split('.');
 		if(tempKeys.length === 2) {
-			if(typeof global.configuration[tempKeys[0]] === 'undefined') {
+			if(typeof global.configuration.data[tempKeys[0]] === 'undefined') {
 				global.configuration.data[tempKeys[0]] = {};
 			}
 			global.configuration.data[tempKeys[0]][tempKeys[1]] = value;
