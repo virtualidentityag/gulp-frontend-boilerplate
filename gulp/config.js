@@ -12,11 +12,6 @@ module.exports = {
         dist: dist
     },
 
-    watch: {
-        interval: 500,
-        debounceDelay: 750
-    },
-
     zetzer: {
         partials: src + '/_partials',
         templates: src + '/_partials/layout',
