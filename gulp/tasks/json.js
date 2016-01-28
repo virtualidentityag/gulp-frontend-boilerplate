@@ -1,7 +1,9 @@
-var gulp     = require('gulp');
+var gulp = require('gulp');
 var jsonlint = require('gulp-jsonlint');
-var cached   = require('gulp-cached');
-var config   = require('./../config');
+var cached = require('gulp-cached');
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('lint:json', function () {
@@ -17,11 +19,10 @@ gulp.task('lint:json', function () {
 
 gulp.task('watch:json', function () {
 
-    gulp.watch([
+    watch([
         config.global.src + '/_mock/**/*.json'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['lint:json']);
+    ], function() {
+        runSequence( 'lint:json' );
+    });
 
 });

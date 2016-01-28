@@ -1,8 +1,10 @@
-var gulp        = require('gulp');
-var jshint      = require('gulp-jshint');
-var stylish     = require('jshint-stylish');
-var cached      = require('gulp-cached');
-var config      = require('./../config');
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
+var cached = require('gulp-cached');
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('jshint', function() {
@@ -20,13 +22,12 @@ gulp.task('jshint', function() {
 
 gulp.task('watch:jshint', function () {
 
-    gulp.watch([
+    watch([
         config.global.src + '/resources/js/**/*.js',
         '!' + config.global.src + '/resources/js/vendor/**/*.js',
         '!' + config.global.src + '/resources/bower_components/**/*.js'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['jshint']);
+    ], function() {
+        runSequence( 'jshint' );
+    });
 
 });

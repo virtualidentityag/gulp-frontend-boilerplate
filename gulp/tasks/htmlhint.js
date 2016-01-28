@@ -1,7 +1,9 @@
-var gulp     = require('gulp');
+var gulp = require('gulp');
 var htmlhint = require("gulp-htmlhint");
-var cached   = require('gulp-cached');
-var config   = require('./../config');
+var cached = require('gulp-cached');
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+var config = require('./../config');
 
 
 gulp.task('htmlhint', function() {
@@ -15,11 +17,10 @@ gulp.task('htmlhint', function() {
 
 gulp.task('watch:html', function () {
 
-    gulp.watch([
+    watch([
         config.global.dev + '/*.html'
-    ], {
-        interval: config.watch.interval,
-        debounceDelay: config.watch.debounceDelay
-    }, ['htmlhint']);
+    ], function() {
+        runSequence( 'htmlhint' )
+    });
 
 });
