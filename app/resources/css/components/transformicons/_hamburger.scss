@@ -68,7 +68,7 @@ $hamburger-transition-timing: ease-in-out;
 
     &--htx {
         .hamburger__bar {
-            transition: background 0s $hamburger-transition-timing $hamburger-transition-duration;
+            transition: background-color 0s $hamburger-transition-timing $hamburger-transition-duration;
 
             &:before {
                 transition: top $hamburger-transition-duration $hamburger-transition-timing $hamburger-transition-duration, transform $hamburger-transition-duration $hamburger-transition-timing;
