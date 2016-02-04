@@ -1,6 +1,8 @@
 var gulp        = require('gulp');
 var runSequence = require('run-sequence');
 
+// Prevent errors caused by too many listeners in gulp-watch
+require('events').EventEmitter.defaultMaxListeners = 0;
 
 // configure default task
 gulp.task('default', ['serve']);
