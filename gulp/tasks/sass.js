@@ -15,7 +15,7 @@ gulp.task('sass', function () {
         config.global.src + '/resources/css/**/*.scss',
         '!' + config.global.src + '/resources/css/**/_*.scss'
     ])
-        .pipe( sass().on('error', sass.logError) )
+        .pipe( sass( config.sass ).on('error', sass.logError) )
         .pipe( postcss([
             autoprefixer( config.autoprefixer )
         ]))

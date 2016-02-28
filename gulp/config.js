@@ -116,6 +116,12 @@ module.exports = {
         partialWrap: 'Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));',
         namespace: 'global.configuration.data.tpl',
         noRedeclare: true
+    },
+
+    sass: {
+        includePaths: [
+            'app/resources/bower_components/foundation-sites/scss/'
+        ]
     }
 
 };
