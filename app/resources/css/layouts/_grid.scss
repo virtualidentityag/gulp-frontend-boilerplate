@@ -1,5 +1,2 @@
-.section {
-    &--grey {
-        background-color: #ccc;
-    }
-}
+@import "../../bower_components/foundation-sites/scss/grid/grid";
+@include foundation-grid;
