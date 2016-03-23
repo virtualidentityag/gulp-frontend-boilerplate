@@ -29,8 +29,7 @@ gulp.task('build:dev', function (callback) {
 		[
 			'zetzer',
 			'sass',
-			'indexr',
-			'copy:dev:js'
+			'indexr'
 		],
 		[
 			'modernizr',
