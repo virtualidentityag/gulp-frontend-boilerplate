@@ -11,37 +11,39 @@ var config = require('./../config');
 
 gulp.task('livereload', function () {
 
-    gulpLivereload.listen();
+	gulpLivereload.listen();
+	watch([
+		config.global.dev + '/**/*',
+		config.global.src + '/resources/js/**/*.js',
+		'!' + config.global.dev + '/resources/js/**/*.js',
+		config.global.src + '/resources/bower_components/**/*',
+		'!' + config.global.dev + '/resources/bower_components/**/*',
+		config.global.src + '/_mock/**/*',
+		'!' + config.global.dev + '/_mock/**/*',
+		config.global.src + '/_assets/**/*',
+		'!' + config.global.dev + '/_assets/**/*',
+		'!' + config.global.dev + '/resources/js/handlebars.templates.js'
+	], function (file) {
+		gulp.src(file.path)
+			.pipe(cached('livereload'))
+			.pipe(gulpLivereload());
 
-    watch([
-        config.global.dev + '/**/*',
-        config.global.src + '/resources/js/**/*.js',
-        config.global.src + '/resources/bower_components/**/*',
-        config.global.src + '/_mock/**/*',
-        config.global.src + '/_assets/**/*',
-        '!' + config.global.dev + '/resources/js/handlebars.templates.js'
-    ], function(file) {
-
-        gulp.src( file.path )
-            .pipe( cached('livereload') )
-            .pipe( gulpLivereload() );
-
-    });
+	});
 
 });
 
 gulp.task('connect:open', function () {
 
-    return opn( 'http://localhost:' + config.connect.port );
+	return opn('http://localhost:' + config.connect.port);
 
 });
 
-gulp.task('connect', function(){
+gulp.task('connect', function () {
 
-    return connect()
-        .use( connectLivereload() )
-        .use( serveStatic( config.global.dev ) )
-        .use( serveStatic( config.global.src ) )
-        .listen( config.connect.port );
+	return connect()
+		.use(connectLivereload())
+		.use(serveStatic(config.global.dev))
+		.use(serveStatic(config.global.src))
+		.listen(config.connect.port);
 
 });
