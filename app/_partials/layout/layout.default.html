@@ -16,7 +16,9 @@
 
             {{= ftf.include("framework/header.html") }}
             <main class="content">
-                {{# partial.contentMain }}
+                <article>
+                    {{= ftf.include( partial.contentMain ) }}
+                </article>
             </main>
             {{= ftf.include("framework/footer.html") }}
 
