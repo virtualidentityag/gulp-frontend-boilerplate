@@ -9,6 +9,4 @@
 
 <!-- bind all template specific partials to global variables for usage in the layout file -->
 {{# partial = {} }}
-
-{{## def.contentMain: {{= ftf.include("scaffolding/demo.content.html") }} #}}
-{{# partial.contentMain = def.contentMain }}
+{{# partial.contentMain = "scaffolding/demo.content.html" }}
