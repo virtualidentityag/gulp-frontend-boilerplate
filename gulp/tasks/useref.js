@@ -3,7 +3,7 @@ var useref    = require('gulp-useref');
 var zetzer    = require('gulp-zetzer');
 var filter    = require('gulp-filter');
 var uglify    = require('gulp-uglify');
-var minifyCss = require('gulp-minify-css');
+var cssNano = require('gulp-cssnano');
 var config    = require('./../config');
 
 
@@ -30,7 +30,7 @@ gulp.task('useref:assets', function () {
         .pipe( jsFilter.restore )
 
         .pipe( cssFilter )
-        .pipe( minifyCss( config.minifyCss ) )
+        .pipe( cssNano( config.cssNano ) )
         .pipe( cssFilter.restore )
 
         .pipe( gulp.dest( config.global.dist ) );

@@ -39,7 +39,9 @@ module.exports = {
         preserveComments: 'license'
     },
 
-    minifyCss: {},
+    cssNano: {
+        safe: true
+    },
 
     cssmin: {},
 
