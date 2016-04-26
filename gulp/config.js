@@ -39,13 +39,13 @@ module.exports = {
         preserveComments: 'license'
     },
 
-    minifyCss: {},
+    cleanCss: {},
 
     cssmin: {},
 
     iconfont: {
         fontName: 'Icons',
-        appendUnicode: true,
+		prependUnicode: true,
         timestamp: Math.round(Date.now()/1000),
         normalize: true
     },
