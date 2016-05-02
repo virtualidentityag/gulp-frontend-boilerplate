@@ -60,7 +60,7 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'uglify:dist',
-			'cssNano:dist'
+			'minifyCss:dist'
 		],
 		[
 			'useref',
