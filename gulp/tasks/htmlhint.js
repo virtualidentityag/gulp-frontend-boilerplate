@@ -6,21 +6,21 @@ var runSequence = require('run-sequence');
 var config = require('./../config');
 
 
-gulp.task('htmlhint', function() {
+gulp.task('htmlhint', function () {
 
-    return gulp.src( config.global.dev + '/*.html')
-        .pipe( cached('htmlhint') )
-        .pipe( htmlhint( '.htmlhintrc' ) )
-        .pipe( htmlhint.reporter('htmlhint-stylish') );
+	return gulp.src(config.global.dev + '/*.html')
+		.pipe(cached('htmlhint'))
+		.pipe(htmlhint('.htmlhintrc'))
+		.pipe(htmlhint.reporter('htmlhint-stylish'));
 
 });
 
 gulp.task('watch:html', function () {
 
-    watch([
-        config.global.dev + '/*.html'
-    ], function() {
-        runSequence( 'htmlhint' )
-    });
+	watch([
+		config.global.dev + '/*.html'
+	], function () {
+		runSequence('htmlhint')
+	});
 
 });

@@ -11,18 +11,10 @@ gulp.task('copy:dev:bower', function () {
 
 gulp.task('copy:dev:js', function () {
 
-	return gulp.src(config.global.src + '/resources/js/**/*.js')
+	return gulp.src(config.global.src + '/resources/js/*.js')
 		.pipe(gulp.dest(config.global.dev + '/resources/js/'));
 
 });
-
-gulp.task('copy:dist:js', function () {
-
-	return gulp.src(config.global.dev + '/resources/js/**/*.js')
-		.pipe(gulp.dest(config.global.dist + '/resources/js/'));
-
-});
-
 
 gulp.task('copy:dist:bower', function () {
 
@@ -31,11 +23,31 @@ gulp.task('copy:dist:bower', function () {
 
 });
 
+gulp.task('copy:dev:js:vendor', function () {
+
+	return gulp.src(config.global.src + '/resources/js/vendor/**/*')
+		.pipe(gulp.dest(config.global.dev + '/resources/js/vendor/'));
+
+});
+
+gulp.task('copy:dist:js:vendor', function () {
+
+	return gulp.src(config.global.dev + '/resources/js/vendor/**/*')
+		.pipe(gulp.dest(config.global.dist + '/resources/js/vendor/'));
+
+});
 
 gulp.task('copy:dist:flash', function () {
 
 	return gulp.src(config.global.src + '/resources/flash/**/*')
 		.pipe(gulp.dest(config.global.dist + '/resources/flash/'));
+
+});
+
+gulp.task('copy:dist:json', function () {
+
+	return gulp.src(config.global.src + '/resources/json/**/*')
+		.pipe(gulp.dest(config.global.dist + '/resources/json/'));
 
 });
 
@@ -60,6 +72,13 @@ gulp.task('copy:dist:assets', function () {
 
 	return gulp.src(config.global.src + '/_assets/**/*')
 		.pipe(gulp.dest(config.global.dist + '/_assets/'));
+
+});
+
+gulp.task('copy:dist:css', function () {
+
+	return gulp.src(config.global.src + '/resources/css/**/*.css')
+		.pipe(gulp.dest(config.global.dist + '/resources/css/'));
 
 });
 

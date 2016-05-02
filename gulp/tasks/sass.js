@@ -11,34 +11,34 @@ var config = require('./../config');
 
 gulp.task('sass', function () {
 
-    return gulp.src( [
-        config.global.src + '/resources/css/**/*.scss',
-        '!' + config.global.src + '/resources/css/**/_*.scss'
-    ])
-        .pipe( sass( config.sass ).on('error', sass.logError) )
-        .pipe( postcss([
-            autoprefixer( config.autoprefixer )
-        ]))
-        .pipe( gulp.dest( config.global.dev + '/resources/css' ) );
+	return gulp.src([
+			config.global.src + '/resources/css/**/*.scss',
+			'!' + config.global.src + '/resources/css/**/_*.scss'
+		])
+		.pipe(sass(config.sass).on('error', sass.logError))
+		.pipe(postcss([
+			autoprefixer(config.autoprefixer)
+		]))
+		.pipe(gulp.dest(config.global.dev + '/resources/css'));
 
 });
 
 gulp.task('lint:sass', function () {
 
-    return gulp.src( config.global.src + 'resources/css/**/*.s+(a|c)ss')
-        .pipe( cached('sass') )
-        .pipe( sassLint())
-        .pipe( sassLint.format())
-        .pipe( sassLint.failOnError());
+	return gulp.src(config.global.src + 'resources/css/**/*.s+(a|c)ss')
+		.pipe(cached('sass'))
+		.pipe(sassLint())
+		.pipe(sassLint.format())
+		.pipe(sassLint.failOnError());
 
 });
 
 gulp.task('watch:sass', function () {
 
-    watch([
-        config.global.src + '/resources/css/**/*.scss'
-    ], function() {
-        runSequence( 'sass' );
-    });
+	watch([
+		config.global.src + '/resources/css/**/*.scss'
+	], function () {
+		runSequence('sass');
+	});
 
 });

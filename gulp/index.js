@@ -24,12 +24,14 @@ gulp.task('build:dev', function (callback) {
 			'iconfont'
 		],
 		[
-			'handlebars'
+			'handlebars',
+			'angularTemplates'
 		],
 		[
 			'zetzer',
 			'sass',
-			'indexr'
+			'indexr',
+			'copy:dev:js:vendor'
 		],
 		[
 			'modernizr',
@@ -52,11 +54,13 @@ gulp.task('build', function (callback) {
 			'copy:dev:bower',
 			'copy:dist:bower',
 			'copy:dist:flash',
+			'copy:dist:json',
 			'copy:dist:fonts',
 			'copy:dist:img',
 			'copy:dist:assets',
+			'copy:dist:css',
 			'copy:dist:mock',
-			'copy:dist:js'
+			'copy:dist:js:vendor'
 		],
 		[
 			'uglify:dist',
@@ -90,6 +94,7 @@ gulp.task('serve', function (callback) {
 			'watch:jshint',
 			'watch:eslint',
 			'watch:handlebars',
+			'watch:angularTemplates',
 			'watch:json',
 			'watch:html'
 		],
