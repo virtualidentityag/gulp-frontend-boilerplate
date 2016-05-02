@@ -20,7 +20,7 @@
     ],
     "indent": [
       2,
-      4
+      "tab"
     ],
     "linebreak-style": [
       2,
@@ -30,7 +30,6 @@
       2,
       "except-parens"
     ],
-    "no-extra-parens": 1,
     "no-floating-decimal": 1,
     "radix": 1,
     "quotes": [
@@ -45,7 +44,7 @@
       2,
       "function"
     ],
-    "valid-jsdoc": 1
+    "valid-jsdoc": 0
   },
   "env": {
     "es6": true,
