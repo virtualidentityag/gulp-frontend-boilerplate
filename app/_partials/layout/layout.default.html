@@ -16,19 +16,23 @@
 
             {{= ftf.include("framework/header.html") }}
             <main class="content">
-                {{# partial.contentMain }}
+                <article>
+                    {{= ftf.include( partial.contentMain ) }}
+                </article>
             </main>
             {{= ftf.include("framework/footer.html") }}
 
-            <aside class="offcanvas__area offcanvas__area--left"> LEFT OFFCANVAS AREA </aside>
-            <aside class="offcanvas__area offcanvas__area--right"> RIGHT OFFCANVAS AREA </aside>
+            <div class="offcanvas__area offcanvas__area--left"> LEFT OFFCANVAS AREA </div>
+            <div class="offcanvas__area offcanvas__area--right"> RIGHT OFFCANVAS AREA </div>
             <a class="offcanvas__exit"></a>
 
         </div>
     </div>
 
 	<!-- DEV-note: optional offsite content that is independent from normal content flow  -->
-	{{# partial.contentOffsite || '' }}
+    {{? partial.contentOffsite }}
+        {{= ftf.include( partial.contentOffsite ) }}
+    {{?}}
 
 	{{= ftf.include("includes/scripts.html") }}
 	{{= ftf.include("includes/tracking.html") }}
