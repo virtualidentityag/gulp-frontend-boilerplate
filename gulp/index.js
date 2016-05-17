@@ -67,7 +67,9 @@ gulp.task('build', function (callback) {
 			'minifyCss:dist'
 		],
 		[
-			'useref',
+			'useref'
+		],
+		[
 			'useref:assets',
 			'image:assets:dist',
 			'image:resources:dist'
