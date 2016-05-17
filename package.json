@@ -48,7 +48,7 @@
 		"gulp-ttf2eot": "1.1.1",
 		"gulp-ttf2woff": "1.1.0",
 		"gulp-uglify": "1.5.3",
-		"gulp-useref": "3.0.8",
+		"gulp-useref": "3.0.4",
 		"gulp-util": "3.0.7",
 		"gulp-watch": "^4.3.5",
 		"gulp-wrap": "0.11.0",
