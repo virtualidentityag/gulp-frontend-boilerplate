@@ -61,7 +61,13 @@
 		"require-dir": "0.3.0",
 		"run-sequence": "1.1.5",
 		"serve-static": "1.10.2",
-		"gulp-cssnano": "2.1.2"
+		"gulp-cssnano": "2.1.2",
+
+		"selenium-server-standalone-jar": "2.53.0",
+		"vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
+		"gulp-nightwatch": "0.2.9",
+		"node-resemble-js": "0.0.5",
+		"nightwatch-html-reporter": "1.0.4"
 	},
 	"engines": {
 		"node": ">=5.9.0"

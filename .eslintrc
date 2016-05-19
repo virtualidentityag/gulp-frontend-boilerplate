@@ -23,7 +23,7 @@
       "tab"
     ],
     "linebreak-style": [
-      2,
+      1,
       "unix"
     ],
     "no-cond-assign": [

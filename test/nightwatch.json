@@ -1,0 +1,46 @@
+{
+  "src_folders" : ["test/nightwatch"],
+  "output_folder" : "reports",
+	"custom_commands_path": "node_modules/vi-custom-assertions-commands/commands",
+  "custom_assertions_path": "node_modules/vi-custom-assertions-commands/assertions",
+  "page_objects_path" : "",
+  "globals_path" : "test/globals.js",
+
+  "selenium" : {
+    "start_process" : false,
+    "server_path" : "",
+    "log_path" : "",
+    "host" : "10.1.2.85",
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.chrome.driver" : "",
+      "webdriver.ie.driver" : ""
+    }
+  },
+
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "10.1.2.85",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+
+    "firefox" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    }
+  }
+}
