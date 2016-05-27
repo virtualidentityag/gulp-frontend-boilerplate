@@ -67,7 +67,8 @@
 		"vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
 		"gulp-nightwatch": "0.2.9",
 		"node-resemble-js": "0.0.5",
-		"nightwatch-html-reporter": "1.0.4"
+		"nightwatch-html-reporter": "1.0.4",
+		"gm": "^1.22.0"
 	},
 	"engines": {
 		"node": ">=5.9.0"
