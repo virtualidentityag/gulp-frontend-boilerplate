@@ -72,9 +72,11 @@ gulp.task('build', function (callback) {
 		[
 			'useref:assets',
 			'image:assets:dist',
-			'image:resources:dist'
+			'image:resources:dist',
+			'favicons'
 		],
 		[
+			'inject',
 			'clean:useref',
 			'cssstats'
 		],
