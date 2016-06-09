@@ -15,3 +15,15 @@ gulp.task('uglify:dist', function () {
 		.pipe(gulp.dest(config.global.dist + '/resources/js/'));
 
 });
+
+gulp.task('uglify:additional:dist', function () {
+
+	return gulp.src( config.global.dev + config.global.additionalResources + '/js/*.js')
+		.pipe( uglify() )
+		.pipe( size({
+			title: 'uglified',
+			showFiles: true
+		}) )
+		.pipe( gulp.dest( config.global.dist + config.global.additionalResources + '/js/' ) );
+
+});

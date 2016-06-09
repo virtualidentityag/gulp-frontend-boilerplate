@@ -32,7 +32,8 @@ gulp.task('handlebars', function () {
 		}));
 
 	var templates = gulp.src([
-			config.global.src + '/resources/templates/**/[^_]*.hbs'
+			config.global.src + '/resources/templates/**/[^_]*.hbs',
+			config.global.src + config.global.additionalResources + '/templates/**/[^_]*.hbs'
 		])
 		.pipe(plumber())
 		.pipe(handlebars({
@@ -56,6 +57,7 @@ gulp.task('watch:handlebars', function () {
 
 	watch([
 		config.global.src + '/resources/templates/**/*.hbs',
+		config.global.src + config.global.additionalResources + '/templates/**/*.hbs',
 		config.global.src + '/resources/js/handlebars.helper.js'
 	], function () {
 		runSequence('handlebars');

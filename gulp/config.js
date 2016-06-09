@@ -9,7 +9,9 @@ module.exports = {
     global: {
         src:  src,
         dev:  dev,
-        dist: dist
+        dist: dist,
+		// set to specific folder with name leading slash, e.g. '/resources-content'
+		additionalResources: false
     },
 
     zetzer: {

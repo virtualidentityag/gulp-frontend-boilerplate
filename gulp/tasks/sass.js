@@ -8,7 +8,6 @@ var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var config = require('./../config');
 
-
 gulp.task('sass', function () {
 
 	return gulp.src([
@@ -20,6 +19,20 @@ gulp.task('sass', function () {
 			autoprefixer(config.autoprefixer)
 		]))
 		.pipe(gulp.dest(config.global.dev + '/resources/css'));
+
+});
+
+gulp.task('sass:additional', function () {
+
+	return gulp.src([
+		config.global.src + config.global.additionalResources + '/css/**/*.scss',
+		'!' + config.global.src + config.global.additionalResources + '/css/**/_*.scss'
+	])
+		.pipe(sass(config.sass).on('error', sass.logError))
+		.pipe(postcss([
+			autoprefixer(config.autoprefixer)
+		]))
+		.pipe(gulp.dest(config.global.dev + config.global.additionalResources + '/css'));
 
 });
 
@@ -39,6 +52,16 @@ gulp.task('watch:sass', function () {
 		config.global.src + '/resources/css/**/*.scss'
 	], function () {
 		runSequence('sass');
+	});
+
+});
+
+gulp.task('watch:sass:additional', function () {
+
+	gulp.watch([
+		config.global.src + config.global.additionalResources + '/css/**/*.scss'
+	], function () {
+		runSequence('sass:additional');
 	});
 
 });
