@@ -30,10 +30,8 @@ gulp.task('build:dev', function (callback) {
 		[
 			'zetzer',
 			'sass',
-			'sass:additional',
 			'indexr',
 			'copy:dev:js:vendor',
-			'copy:additional:dev:js:vendor'
 		],
 		[
 			'modernizr',
@@ -53,31 +51,20 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'copy:dev:js',
-			'copy:additional:dev:js',
 			'copy:dev:bower',
-			'copy:additional:dev:bower',
 			'copy:dist:bower',
-			'copy:additional:dist:bower',
 			'copy:dist:flash',
-			'copy:additional:dist:flash',
 			'copy:dist:json',
-			'copy:additional:dist:json',
 			'copy:dist:fonts',
-			'copy:additional:dist:fonts',
 			'copy:dist:img',
-			'copy:additional:dist:img',
 			'copy:dist:assets',
 			'copy:dist:css',
-			'copy:additional:dist:css',
 			'copy:dist:mock',
 			'copy:dist:js:vendor',
-			'copy:additional:dist:js:vendor'
 		],
 		[
 			'uglify:dist',
-			'uglify:additional:dist',
 			'cleanCss:dist',
-			'cleanCss:additional:dist'
 		],
 		[
 			'useref'

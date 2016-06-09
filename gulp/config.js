@@ -10,8 +10,7 @@ module.exports = {
         src:  src,
         dev:  dev,
         dist: dist,
-		// set to specific folder with name leading slash, e.g. '/resources-content'
-		additionalResources: false
+		resources: ['/resources']
     },
 
     zetzer: {

@@ -6,62 +6,44 @@ var autoprefixer = require('autoprefixer');
 var cached = require('gulp-cached');
 var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
+var mergeStream = require('merge-stream');
 var config = require('./../config');
 
 gulp.task('sass', function () {
 
-	return gulp.src([
-			config.global.src + '/resources/css/**/*.scss',
-			'!' + config.global.src + '/resources/css/**/_*.scss'
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src([
+			config.global.src + currentResource + '/css/**/*.scss',
+			'!' + config.global.src + currentResource + '/css/**/_*.scss'
 		])
-		.pipe(sass(config.sass).on('error', sass.logError))
-		.pipe(postcss([
-			autoprefixer(config.autoprefixer)
-		]))
-		.pipe(gulp.dest(config.global.dev + '/resources/css'));
-
-});
-
-gulp.task('sass:additional', function () {
-
-	return gulp.src([
-		config.global.src + config.global.additionalResources + '/css/**/*.scss',
-		'!' + config.global.src + config.global.additionalResources + '/css/**/_*.scss'
-	])
-		.pipe(sass(config.sass).on('error', sass.logError))
-		.pipe(postcss([
-			autoprefixer(config.autoprefixer)
-		]))
-		.pipe(gulp.dest(config.global.dev + config.global.additionalResources + '/css'));
-
+			.pipe(sass(config.sass).on('error', sass.logError))
+			.pipe(postcss([
+				autoprefixer(config.autoprefixer)
+			]))
+			.pipe(gulp.dest(config.global.dev + currentResource + '/css'));
+	}));
 });
 
 gulp.task('lint:sass', function () {
 
-	return gulp.src(config.global.src + 'resources/css/**/*.s+(a|c)ss')
-		.pipe(cached('sass'))
-		.pipe(sassLint())
-		.pipe(sassLint.format())
-		.pipe(sassLint.failOnError());
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource.replace('/','') + '/css/**/*.s+(a|c)ss')
+			.pipe(cached('sass'))
+			.pipe(sassLint())
+			.pipe(sassLint.format())
+			.pipe(sassLint.failOnError());
+	}));
 
 });
 
 gulp.task('watch:sass', function () {
 
-	watch([
-		config.global.src + '/resources/css/**/*.scss'
-	], function () {
-		runSequence('sass');
-	});
-
-});
-
-gulp.task('watch:sass:additional', function () {
-
-	gulp.watch([
-		config.global.src + config.global.additionalResources + '/css/**/*.scss'
-	], function () {
-		runSequence('sass:additional');
+	config.global.resources.forEach(function(currentResource) {
+		watch([
+			config.global.src + currentResource + '/css/**/*.scss'
+		], function () {
+			runSequence('sass');
+		});
 	});
 
 });

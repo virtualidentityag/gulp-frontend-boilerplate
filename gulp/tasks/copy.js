@@ -1,69 +1,88 @@
 var gulp = require('gulp');
+var mergeStream = require('merge-stream');
 var config = require('./../config');
 
 gulp.task('copy:dev:bower', function () {
 
-	return gulp.src(config.global.src + '/resources/bower_components/**/*')
-		.pipe(gulp.dest(config.global.dev + '/resources/bower_components/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/bower_components/**/*')
+			.pipe(gulp.dest(config.global.dev + currentResource + '/bower_components/'));
+	}));
 
 });
 
 gulp.task('copy:dev:js', function () {
 
-	return gulp.src(config.global.src + '/resources/js/*.js')
-		.pipe(gulp.dest(config.global.dev + '/resources/js/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/js/*.js')
+			.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
+	}));
 
 });
 
 gulp.task('copy:dist:bower', function () {
 
-	return gulp.src(config.global.src + '/resources/bower_components/**/*')
-		.pipe(gulp.dest(config.global.dist + '/resources/bower_components/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/bower_components/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/bower_components/'));
+	}));
 
 });
 
 gulp.task('copy:dev:js:vendor', function () {
 
-	return gulp.src(config.global.src + '/resources/js/vendor/**/*')
-		.pipe(gulp.dest(config.global.dev + '/resources/js/vendor/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/js/vendor/**/*')
+			.pipe(gulp.dest(config.global.dev + currentResource + '/js/vendor/'));
+	}));
 
 });
 
 gulp.task('copy:dist:js:vendor', function () {
 
-	return gulp.src(config.global.dev + '/resources/js/vendor/**/*')
-		.pipe(gulp.dest(config.global.dist + '/resources/js/vendor/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.dev + currentResource + '/js/vendor/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/js/vendor/'));
+	}));
 
 });
 
 gulp.task('copy:dist:flash', function () {
 
-	return gulp.src(config.global.src + '/resources/flash/**/*')
-		.pipe(gulp.dest(config.global.dist + '/resources/flash/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/flash/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/flash/'));
+	}));
 
 });
 
 gulp.task('copy:dist:json', function () {
 
-	return gulp.src(config.global.src + '/resources/json/**/*')
-		.pipe(gulp.dest(config.global.dist + '/resources/json/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/json/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/json/'));
+	}));
 
 });
 
 gulp.task('copy:dist:fonts', function () {
 
-	return gulp.src([
-			config.global.src + '/resources/fonts/**/*',
-			config.global.dev + '/resources/fonts/**/*'
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src([
+			config.global.src + currentResource + '/fonts/**/*',
+			config.global.dev + currentResource + '/fonts/**/*'
 		])
-		.pipe(gulp.dest(config.global.dist + '/resources/fonts/'));
+			.pipe(gulp.dest(config.global.dist + currentResource + '/fonts/'));
+	}));
 
 });
 
 gulp.task('copy:dist:img', function () {
 
-	return gulp.src(config.global.src + '/resources/img/**/*')
-		.pipe(gulp.dest(config.global.dist + '/resources/img/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/img/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource +  '/img/'));
+	}));
 
 });
 
@@ -76,8 +95,10 @@ gulp.task('copy:dist:assets', function () {
 
 gulp.task('copy:dist:css', function () {
 
-	return gulp.src(config.global.src + '/resources/css/**/*.css')
-		.pipe(gulp.dest(config.global.dist + '/resources/css/'));
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/css/**/*.css')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/css/'));
+	}));
 
 });
 
@@ -85,82 +106,5 @@ gulp.task('copy:dist:mock', function () {
 
 	return gulp.src(config.global.src + '/_mock/**/*')
 		.pipe(gulp.dest(config.global.dist + '/_mock/'));
-
-});
-
-
-// additional resources
-
-gulp.task('copy:additional:dev:bower', function () {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/bower_components/**/*')
-		.pipe(gulp.dest(config.global.dev + config.global.additionalResources + 'bower_components/'));
-
-});
-
-gulp.task('copy:additional:dev:js', function() {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/js/**/*.js')
-		.pipe(gulp.dest(config.global.dev + config.global.additionalResources + '/js/'));
-
-});
-
-gulp.task('copy:additional:dist:bower', function () {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/bower_components/**/*')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/bower_components/'));
-
-});
-
-gulp.task('copy:additional:dev:js:vendor', function() {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/js/vendor/**/*')
-		.pipe(gulp.dest(config.global.dev + config.global.additionalResources + '/js/vendor/'));
-
-});
-
-gulp.task('copy:additional:dist:js:vendor', function() {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/js/vendor/**/*')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/js/vendor/'));
-
-});
-
-gulp.task('copy:additional:dist:img', function() {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/img/**/*')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/img/'));
-
-});
-
-
-gulp.task('copy:additional:dist:flash', function () {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/flash/**/*')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/flash/'));
-
-});
-
-gulp.task('copy:additional:dist:json', function () {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/json/**/*')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/json/'));
-
-});
-
-gulp.task('copy:additional:dist:fonts', function () {
-
-	return gulp.src([
-		config.global.src + config.global.additionalResources + '/fonts/**/*',
-		config.global.dev + config.global.additionalResources + '/fonts/**/*'
-	])
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/fonts/'));
-
-});
-
-gulp.task('copy:additional:dist:css', function () {
-
-	return gulp.src(config.global.src + config.global.additionalResources + '/css/**/*.css')
-		.pipe(gulp.dest(config.global.dist + config.global.additionalResources + '/css/'));
 
 });

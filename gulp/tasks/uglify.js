@@ -1,29 +1,20 @@
 var gulp = require('gulp');
 var size = require('gulp-size');
 var uglify = require('gulp-uglify');
+var mergeStream = require('merge-stream');
 var config = require('./../config');
 
 
 gulp.task('uglify:dist', function () {
 
-	return gulp.src(config.global.dev + '/resources/js/**/*.js')
-		.pipe(uglify())
-		.pipe(size({
-			title: 'uglified',
-			showFiles: true
-		}))
-		.pipe(gulp.dest(config.global.dist + '/resources/js/'));
-
-});
-
-gulp.task('uglify:additional:dist', function () {
-
-	return gulp.src( config.global.dev + config.global.additionalResources + '/js/*.js')
-		.pipe( uglify() )
-		.pipe( size({
-			title: 'uglified',
-			showFiles: true
-		}) )
-		.pipe( gulp.dest( config.global.dist + config.global.additionalResources + '/js/' ) );
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.dev + currentResource + '/js/**/*.js')
+			.pipe(uglify())
+			.pipe(size({
+				title: 'uglified',
+				showFiles: true
+			}))
+			.pipe(gulp.dest(config.global.dist + currentResource + '/js/'));
+	}));
 
 });
