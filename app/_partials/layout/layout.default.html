@@ -2,8 +2,12 @@
 <head>
 	{{= ftf.include("includes/htmlhead.meta.html") }}
 	<!-- DEV-note: include page specific meta information after this comment -->
+	{{? ftf.template === 'differentTemplate' }}
+		{{= ftf.include("includes/htmlhead.styles.differentTemplate.html") }}
+	{{??}}
+		{{= ftf.include("includes/htmlhead.styles.html") }}
+	{{?}}
 
-	{{= ftf.include("includes/htmlhead.styles.html") }}
 	{{= ftf.include("includes/htmlhead.scripts.html") }}
 
 	<!-- DEV-note: include page specific styles and scripts after this comment -->

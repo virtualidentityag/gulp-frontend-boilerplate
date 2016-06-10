@@ -1,0 +1,7 @@
+$h1-text-color: $black !default;
+
+.h1 {
+	&__overline {
+		color: $h1-text-color;
+	}
+}
