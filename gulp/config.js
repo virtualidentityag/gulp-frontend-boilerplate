@@ -1,4 +1,10 @@
 var fs = require('fs');
+try {
+	var projectConfig = require('../projectConfig.json');
+} catch (err) {
+	console.log(err + ' -- using default values');
+	var projectConfig = false;
+}
 
 var src  = 'app';
 var dev  = '.tmp';
@@ -10,7 +16,7 @@ module.exports = {
         src:  src,
         dev:  dev,
         dist: dist,
-		resources: ['/resources']
+		resources: projectConfig.resources || ['/resources']
     },
 
     zetzer: {

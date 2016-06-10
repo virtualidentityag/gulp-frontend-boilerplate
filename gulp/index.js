@@ -93,7 +93,6 @@ gulp.task('serve', function (callback) {
 			'livereload',
 			'watch:zetzer',
 			'watch:sass',
-			'watch:sass:additional',
 			'watch:jshint',
 			'watch:eslint',
 			'watch:handlebars',
