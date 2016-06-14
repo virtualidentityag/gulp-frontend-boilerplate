@@ -1,4 +1,6 @@
 var fs = require('fs');
+var _ = require('lodash');
+
 try {
 	var projectConfig = require('../projectConfig.json');
 } catch (err) {
@@ -16,7 +18,7 @@ module.exports = {
         src:  src,
         dev:  dev,
         dist: dist,
-		resources: projectConfig.resources || ['/resources']
+		resources: ['/resources']
     },
 
     zetzer: {
@@ -83,3 +85,7 @@ module.exports = {
     }
 
 };
+
+if(projectConfig) {
+	_.merge(module.exports, projectConfig);
+}
