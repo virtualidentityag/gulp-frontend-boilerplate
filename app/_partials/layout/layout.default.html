@@ -30,9 +30,9 @@
     </div>
 
 	<!-- DEV-note: optional offsite content that is independent from normal content flow  -->
-    {{? partial.contentOffsite }}
-        {{= ftf.include( partial.contentOffsite ) }}
-    {{?}}
+	{{? partial.contentOffsite }}
+		{{= ftf.include( partial.contentOffsite ) || '' }}
+	{{?}}
 
 	{{= ftf.include("includes/scripts.html") }}
 	{{= ftf.include("includes/tracking.html") }}
