@@ -55,14 +55,12 @@ describe('Expect that', function() {
 		// check existence
 		test.fileExistsAndNotEmpty(config.global.dist+'/index.html');
 		test.fileExistsAndNotEmpty(config.global.dist+'/01layout.01default.html');
-		test.fileExistsAndNotEmpty(config.global.dist+'/01layout.02grid.html');
 		test.fileExistsAndNotEmpty(config.global.dist+'/90demo.01icons.html');
 		test.fileExistsAndNotEmpty(config.global.dist+'/90demo.02handlebars.html');
 
 		// check content
 		test.fileContentEquals(config.global.dist+'/index.html', './test/travis/fixtures/html/index.html');
 		test.fileContentEquals(config.global.dist+'/01layout.01default.html', './test/travis/fixtures/html/01layout.01default.html');
-		test.fileContentEquals(config.global.dist+'/01layout.02grid.html', './test/travis/fixtures/html/01layout.02grid.html');
 		test.fileContentEquals(config.global.dist+'/90demo.01icons.html', './test/travis/fixtures/html/90demo.01icons.html');
 		test.fileContentEquals(config.global.dist+'/90demo.02handlebars.html', './test/travis/fixtures/html/90demo.02handlebars.html');
 
