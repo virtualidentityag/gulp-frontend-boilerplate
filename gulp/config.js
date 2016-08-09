@@ -50,7 +50,10 @@ module.exports = {
         online: false,
         html: "htmlhead.favicons.html",
         pipeHTML: true,
-        replace: true
+        replace: true,
+		icons: {
+			appleStartup: false
+		}
     },
 
     handlebars: {
