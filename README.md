@@ -73,3 +73,18 @@ run the boilerplate with `gulp serve`
 run the boilerplate with `gulp build`
 If everything is correct, you will find a build version of your code in the **dist** directory.
 This contains among others a min and concat version of your js and css files
+
+##Troubleshooting
+
+###Line-break errors in eslint
+
+If there are line-break errors in eslint, it may be because false line endings set by git.
+To prevent this use the git config "core.autocrlf". 
+Use the command "git config core.autocrlf false" to prevent windows from using crlf instead of lf.
+
+###gulp serve malloc error (Unix Only)
+
+************** gulp(975,0x104c15000) malloc: *** error for object 0x10164201c: pointer being freed was not allocated *** set a breakpoint in malloc_error_break to debug **************
+
+This is caused by missing sass files. Be sure you've done a bower install before gulp serve.
+
