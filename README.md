@@ -127,6 +127,14 @@ This contains among others a min and concat version of your js and css files
 When you want to add a bower package, make sure its bower.json has defined a main file. Otherwise you have to add a main file to the override section in [this projects bower.json file](./bower.json).
 This will trigger the gulp task to only pull out the main files of the packages to prevent storage size overhead.
 
+##Release
+There is a gulp task for doing releases. Use gulp release --type=[major,minor,patch,prerelease] will do the following steps for you:
+1. update package.json version
+2. git commit the changed package.json
+3. git push
+4. set a GIT tag for this version
+5. coming soon: create a diff changelog from last version to this version
+
 ##Troubleshooting
 
 ###Line-break errors in eslint
