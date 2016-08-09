@@ -36,6 +36,20 @@ module.exports = {
 
     cssmin: {},
 
+    favicons: {
+        appName: "gulp-frontend-boilerplate",
+        background: "#020307",
+        path: "favicons/",
+        display: "standalone",
+        orientation: "portrait",
+        version: 1.0,
+        logging: false,
+        online: false,
+        html: "htmlhead.favicons.html",
+        pipeHTML: true,
+        replace: true
+    },
+
     handlebars: {
         templateWrap: 'Handlebars.template(<%= contents %>)',
         partialWrap: 'Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));',
