@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "5"
+  - "6"
+install: npm install && npm install -g mocha && npm install -g bower && bower install
+before_script: gulp build
+script: mocha --grep travis/build.js

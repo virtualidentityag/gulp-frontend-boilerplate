@@ -1,16 +1,27 @@
 {
-  "name": "viFrontendFramework",
+  "name": "vifrontendboilerplate",
   "private": true,
   "dependencies": {
-    "jquery": "~2.2.3",
-    "normalize.css": "~4.2.0",
+    "jquery": "2.2.3",
+    "normalize.css": "4.2.0",
     "csshelper": "virtualidentityag/vi-css-helper",
-    "enquire": "~2.1.2",
-    "handlebars": "~4.0.5",
-    "jquery-debouncedwidth": "~1.1.1",
-    "jquery.debouncedresize": "~1.0.1",
-    "modernizr": "~3.3.1",
-    "media-match": "~2.0.2",
-    "foundation-sites": "~6.2.1"
+    "enquire": "2.1.2",
+    "handlebars": "4.0.5",
+    "jquery-debouncedwidth": "1.1.1",
+    "jquery.debouncedresize": "1.0.1",
+    "modernizr": "3.3.1",
+    "media-match": "2.0.2",
+    "foundation-sites": "6.2.1"
+  },
+  "overrides": {
+    "csshelper": {
+      "main": "helper.css"
+    },
+    "handlebars": {
+      "main": "handlebars.runtime.js"
+    },
+    "media-match": {
+      "main": "media.match.js"
+    }
   }
 }

@@ -19,8 +19,9 @@ gulp.task('build:dev', function (callback) {
 		[
 			'lint:sass',
 			'lint:json',
+			'lint:typescript',
 			'jshint',
-			'eslint',
+			//'eslint',
 			'iconfont'
 		],
 		[
@@ -30,8 +31,10 @@ gulp.task('build:dev', function (callback) {
 		[
 			'zetzer',
 			'sass',
+            'typescript',
+            'main-bower-files',
 			'indexr',
-			'copy:dev:js:vendor'
+			'copy:dev:js:vendor',
 		],
 		[
 			'modernizr',
@@ -51,8 +54,6 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'copy:dev:js',
-			'copy:dev:bower',
-			'copy:dist:bower',
 			'copy:dist:flash',
 			'copy:dist:json',
 			'copy:dist:fonts',
@@ -60,11 +61,12 @@ gulp.task('build', function (callback) {
 			'copy:dist:assets',
 			'copy:dist:css',
 			'copy:dist:mock',
-			'copy:dist:js:vendor'
+			'copy:dist:js:vendor',
+			'copy:dist:hbs',
 		],
 		[
 			'uglify:dist',
-			'minifyCss:dist'
+			'cleanCss:dist',
 		],
 		[
 			'useref'
@@ -72,9 +74,11 @@ gulp.task('build', function (callback) {
 		[
 			'useref:assets',
 			'image:assets:dist',
-			'image:resources:dist'
+			'image:resources:dist',
+			'favicons'
 		],
 		[
+			'inject',
 			'clean:useref',
 			'cssstats'
 		],
@@ -98,7 +102,8 @@ gulp.task('serve', function (callback) {
 			'watch:handlebars',
 			'watch:angularTemplates',
 			'watch:json',
-			'watch:html'
+			'watch:html',
+			'watch:typescript'
 		],
 		callback
 	);
