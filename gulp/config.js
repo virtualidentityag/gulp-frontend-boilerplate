@@ -1,12 +1,6 @@
 var fs = require('fs');
 var _ = require('lodash');
-
-try {
-	var projectConfig = require('../projectConfig.json');
-} catch (err) {
-	console.log(err + ' -- using default values');
-	var projectConfig = false;
-}
+var projectConfig = require('../projectConfig.json');
 
 var src  = 'app';
 var dev  = '.tmp';

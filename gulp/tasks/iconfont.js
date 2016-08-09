@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var iconfontCss = require('gulp-iconfont-css');
 var svgicons2svgfont = require('gulp-svgicons2svgfont');
 var svg2ttf = require('gulp-svg2ttf');
@@ -6,17 +7,25 @@ var ttf2eot = require('gulp-ttf2eot');
 var ttf2woff = require('gulp-ttf2woff');
 var config = require('./../config');
 var runSequence = require('run-sequence');
+var projectConfig = require('../../projectConfig.json');
 
 
 gulp.task('iconfont', function (callback) {
-	runSequence(
-		'convertIconsToTtf',
-		[
-			'convertTtfToEot',
-			'convertTtfToWoff'
-		],
-		callback
-	);
+
+	if (projectConfig.tasks.iconfont) {
+		runSequence(
+			'convertIconsToTtf',
+			[
+				'convertTtfToEot',
+				'convertTtfToWoff'
+			],
+			callback
+		);
+	} else {
+		callback();
+		gutil.log(gutil.colors.yellow('iconfont disabled'));
+	}
+
 });
 
 gulp.task('convertIconsToTtf', function () {
