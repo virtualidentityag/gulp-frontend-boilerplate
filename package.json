@@ -46,6 +46,7 @@
     "gulp-notify": "2.2.0",
     "gulp-plumber": "1.1.0",
     "gulp-postcss": "6.1.0",
+    "gulp-release-tasks": "0.0.3",
     "gulp-sass": "2.3.1",
     "gulp-sass-lint": "1.1.1",
     "gulp-size": "2.1.0",
@@ -76,7 +77,7 @@
     "serve-static": "1.10.2",
     "tslint": "3.14.0",
     "vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
-    "yargs": "4.8.1"
+    "yargs": "^4.8.1"
   },
   "engines": {
     "node": ">=5.9.0"
