@@ -34,7 +34,7 @@ gulp.task('build:dev', function (callback) {
             'typescript',
             'main-bower-files',
 			'indexr',
-			'copy:dev:js:vendor',
+			'copy:dev:js:vendor'
 		],
 		[
 			'modernizr',
@@ -62,11 +62,11 @@ gulp.task('build', function (callback) {
 			'copy:dist:css',
 			'copy:dist:mock',
 			'copy:dist:js:vendor',
-			'copy:dist:hbs',
+			'copy:dist:hbs'
 		],
 		[
 			'uglify:dist',
-			'cleanCss:dist',
+			'cleanCss:dist'
 		],
 		[
 			'useref'
