@@ -8,6 +8,8 @@ var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
+var sourcemaps = require('gulp-sourcemaps');
+
 
 gulp.task('sass', function () {
 
@@ -16,10 +18,12 @@ gulp.task('sass', function () {
 			config.global.src + currentResource + '/css/**/*.scss',
 			'!' + config.global.src + currentResource + '/css/**/_*.scss'
 		])
+			.pipe(sourcemaps.init())
 			.pipe(sass(config.sass).on('error', sass.logError))
 			.pipe(postcss([
 				autoprefixer(config.autoprefixer)
 			]))
+			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest(config.global.dev + currentResource + '/css'));
 	}));
 });
