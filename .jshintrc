@@ -19,5 +19,6 @@
 	"smarttabs": true,
 	"jquery": true,
 	"multistr" : true,
+	"maxcomplexity": 10,
 	"predef": [ "enquire", "$", "configuration", "Modernizr", "Handlebars", "Bloodhound", "google", "moment", "ui", "VideoPlayerCollection", "swfobject"]
 }
