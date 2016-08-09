@@ -1,0 +1,8 @@
+{
+	"project": "VIGulpFrontendBoilerplate",
+	"global": {
+		"resources": [
+			"/resources"
+		]
+	}
+}
