@@ -6,11 +6,10 @@ var cached = require('gulp-cached');
 var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var config = require('./../config');
-var projectConfig = require('../../projectConfig.json');
 
 gulp.task('jshint', function () {
 
-	if (projectConfig.tasks.linting) {
+	if (config.global.tasks.linting) {
 		return gulp.src([
 			config.global.src + '/resources/js/**/*.js',
 			'!' + config.global.src + '/resources/js/vendor/**/*.js',
@@ -27,7 +26,7 @@ gulp.task('jshint', function () {
 
 gulp.task('watch:jshint', function () {
 
-	if (projectConfig.tasks.linting) {
+	if (config.global.tasks.linting) {
 		watch([
 			config.global.src + '/resources/js/**/*.js',
 			'!' + config.global.src + '/resources/js/vendor/**/*.js',

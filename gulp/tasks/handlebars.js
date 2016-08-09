@@ -10,12 +10,10 @@ var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var config = require('./../config');
-var projectConfig = require('../../projectConfig.json');
-
 
 gulp.task('handlebars', function () {
 
-	if (projectConfig.tasks.handlebars) {
+	if (config.global.tasks.handlebars) {
 		// Assume all partials start with an underscore
 
 		var partials = mergeStream(config.global.resources.map( function(currentResource) {
@@ -65,7 +63,7 @@ gulp.task('handlebars', function () {
 
 gulp.task('watch:handlebars', function () {
 
-	if (projectConfig.tasks.handlebars) {
+	if (config.global.tasks.handlebars) {
 		config.global.resources.forEach(function (currentResource) {
 			watch([
 				config.global.src + currentResource + '/templates/**/*.hbs',

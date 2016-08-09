@@ -7,12 +7,10 @@ var ttf2eot = require('gulp-ttf2eot');
 var ttf2woff = require('gulp-ttf2woff');
 var config = require('./../config');
 var runSequence = require('run-sequence');
-var projectConfig = require('../../projectConfig.json');
-
 
 gulp.task('iconfont', function (callback) {
 
-	if (projectConfig.tasks.iconfont) {
+	if (config.global.tasks.iconfont) {
 		runSequence(
 			'convertIconsToTtf',
 			[
