@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var config = require('./../config');
 var ts = require('gulp-typescript');
 
