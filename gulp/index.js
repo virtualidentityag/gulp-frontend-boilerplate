@@ -114,3 +114,13 @@ gulp.task('serve:dist', function (callback) {
 		callback
 	);
 });
+
+gulp.task('changelog', function () {
+  return gulp.src('CHANGELOG.md', {
+    buffer: false
+  })
+    .pipe(conventionalChangelog({
+      preset: 'angular'
+    }))
+    .pipe(gulp.dest('./'));
+});
