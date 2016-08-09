@@ -44,7 +44,14 @@
       2,
       "function"
     ],
-    "valid-jsdoc": 0
+	  "valid-jsdoc": 0,
+	  "eol-last": [
+		  "warn",
+		  "unix"
+	  ],
+	  "no-trailing-spaces": [
+		  "warn"
+	  ]
   },
   "env": {
     "es6": true,
