@@ -96,13 +96,10 @@ module.exports = {
     },
 
     typescript: {
-        'files': [
-            'app/resources/ts/**/*.ts'
-        ],
-        'compilerOptions': {
-            'noImplicitAny': true,
-            'target': 'es5'
-        }
+		noImplicitAny: true,
+		suppressImplicitAnyIndexErrors: true,
+		module: 'umd',
+		target: 'ES5'
     },
 
     uglify: {
