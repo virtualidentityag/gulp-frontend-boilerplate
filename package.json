@@ -77,7 +77,7 @@
     "serve-static": "1.10.2",
     "tslint": "3.14.0",
     "vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
-    "yargs": "^4.8.1"
+    "yargs": "4.8.1"
   },
   "engines": {
     "node": ">=5.9.0"
