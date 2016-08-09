@@ -66,7 +66,42 @@ run the boilerplate with `gulp serve`
 
 ##Testing
 
-@ToDo - add Testing Documentation
+Nightwatch.js is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
+perform commands and assertions on DOM elements.
+
+There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
+local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
+
+###gulp test
+
+Gulp task for testing on external Selenium server.
+Add your settings in the configuration file `/test/nightwatch/nightwatch.js`
+
+`gulp test -url=http://YOURDOMAIN.com`
+
+'-url' can be used in nightwatch tests with 'browser.launch_url'.
+Example:
+```javascript
+module.exports = {
+   'Visual Test - Stage Component': function(browser) {
+      browser
+         .windowMaximize()
+         .url(browser.launch_url + '/90demo.01icons.html')
+         .waitForElementPresent('body', 3000)
+         .assert.title('VIGulpFrontendBoilerplate')
+         .end();
+   }
+};
+```
+
+###gulp test:dev
+
+Add your settings in the configuration file `/test/nightwatch/nightwatch.dev.js`
+npm packages to install: 
+Selenium.jar: `npm install selenium-server-standalone-jar`
+GraficMagick: `npm install gm`
+
+Download and install imageMagick: http://www.imagemagick.org
 
 ##Build
 
