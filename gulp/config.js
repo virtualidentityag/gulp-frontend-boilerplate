@@ -21,40 +21,31 @@ module.exports = {
 		resources: ['/resources']
     },
 
-    zetzer: {
-        partials: src + '/_partials',
-        templates: src + '/_partials/layout',
-        dot_template_settings: {
-        strip: false,
-            varname: 'ftf'
-        },
-        env: require('./tasks/zetzerHelper')
-    },
 
+    //=== Plugins ===//
     autoprefixer: {
         //browsers: ['last 3 versions', 'last 8 Chrome versions', 'last 8 Firefox versions' , 'Firefox ESR', 'ie 9', 'last 2 iOS versions', 'Android 4']
         browsers: ['last 1 version']
     },
 
-    modernizr: {
-        options : [
-            "setClasses",
-            "addTest"
-        ],
-	excludeTests: ['hidden']
-    },
-
-    uglify: {
-        preserveComments: 'license'
-    },
-
     cleanCss: {},
+
+    connect: {
+        port: 9000
+    },
 
     cssmin: {},
 
+    handlebars: {
+        templateWrap: 'Handlebars.template(<%= contents %>)',
+        partialWrap: 'Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));',
+        namespace: 'global.configuration.data.tpl',
+        noRedeclare: true
+    },
+
     iconfont: {
         fontName: 'Icons',
-		prependUnicode: true,
+        prependUnicode: true,
         timestamp: Math.round(Date.now()/1000),
         normalize: true
     },
@@ -67,21 +58,42 @@ module.exports = {
         cssClass: 'icon'
     },
 
-    connect: {
-        port: 9000
-    },
-
-    handlebars: {
-        templateWrap: 'Handlebars.template(<%= contents %>)',
-        partialWrap: 'Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));',
-        namespace: 'global.configuration.data.tpl',
-        noRedeclare: true
+    modernizr: {
+        options : [
+            "setClasses",
+            "addTest"
+        ],
+	    excludeTests: ['hidden']
     },
 
     sass: {
         includePaths: [
             'app/resources/bower_components/foundation-sites/scss/'
         ]
+    },
+
+    typescript: {
+        "files": [
+            "app/resources/ts/**/*.ts"
+        ],
+        "compilerOptions": {
+            "noImplicitAny": true,
+            "target": "es5"
+        }
+    },
+
+    uglify: {
+        preserveComments: 'license'
+    },
+
+    zetzer: {
+        partials: src + '/_partials',
+        templates: src + '/_partials/layout',
+        dot_template_settings: {
+            strip: false,
+            varname: 'ftf'
+        },
+        env: require('./tasks/zetzerHelper')
     }
 
 };
