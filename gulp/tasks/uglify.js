@@ -5,6 +5,8 @@ var mergeStream = require('merge-stream');
 var config = require('./../config');
 var projectConfig = require('../../projectConfig.json');
 var gutil = require('gulp-util');
+var sourcemaps = require('gulp-sourcemaps');
+
 
 gulp.task('uglify:dist', function () {
 
@@ -14,12 +16,13 @@ gulp.task('uglify:dist', function () {
 
 	return mergeStream(config.global.resources.map( function(currentResource) {
 		return gulp.src(config.global.dev + currentResource + '/js/**/*.js')
-			.pipe(projectConfig.tasks.uglify ? uglify() : gutil.noop())
-			.pipe(projectConfig.tasks.uglify ? size({
-				title: 'uglified',
-				showFiles: true
-			}) : gutil.noop())
+			.pipe(sourcemaps.init())
+			    .pipe(projectConfig.tasks.uglify ? uglify() : gutil.noop())
+                .pipe(projectConfig.tasks.uglify ? size({
+                    title: 'uglified',
+                    showFiles: true
+                }) : gutil.noop())
+			.pipe(sourcemaps.write())
 			.pipe(gulp.dest(config.global.dist + currentResource + '/js/'));
 	}));
-
 });
