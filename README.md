@@ -53,7 +53,7 @@ How to set up your personal boilerplate, with dependencies you really need.
 
 ##Development
 
-run the boilerplate under `gulp serve` to do the following
+run the boilerplate with `gulp serve`
 
 ###1. Our helpers
 
@@ -63,8 +63,21 @@ run the boilerplate under `gulp serve` to do the following
 
 @ToDo - add all helper functions
 
+###2. Folder structure
 
+* `/app` is where all of the actual frontend code is stored
+* `/app/_assets` holds static placeholder files like images, audio- and video files.
+* `/app/_mock` holds files that would be generated dynamically (such as `nav.json`) by the cms implementing the frontend
+* `/app/_partials` holds snippets of html code that are reused throughout the frontend
+* `/app/resources` holds JavaScript, CSS and other files
+* `/test` is where we put automated tests
+
+##Testing
+
+@ToDo - add Testing Documentation
 
 ##Build
 
-How to gnenerate a productiv version of your code.
+run the boilerplate with `gulp build`
+If everything is correct, you will find a build version of your code in the **dist** directory.
+This contains among others a min and concat version of your js and css files
