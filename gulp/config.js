@@ -82,7 +82,14 @@ module.exports = {
         includePaths: [
             'app/resources/bower_components/foundation-sites/scss/'
         ]
-    }
+    },
+
+    typescript: {
+		noImplicitAny: true,
+		suppressImplicitAnyIndexErrors: true,
+		module: 'umd',
+		target: 'ES5'
+	}
 
 };
 
