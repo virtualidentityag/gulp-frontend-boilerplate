@@ -30,13 +30,15 @@ gulp.task('sass', function () {
 
 gulp.task('lint:sass', function () {
 
-	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.src + currentResource.replace('/','') + '/css/**/*.s+(a|c)ss')
-			.pipe(cached('sass'))
-			.pipe(sassLint())
-			.pipe(sassLint.format())
-			.pipe(sassLint.failOnError());
-	}));
+	if (config.global.tasks.linting) {
+		return mergeStream(config.global.resources.map( function(currentResource) {
+			return gulp.src(config.global.src + currentResource.replace('/','') + '/css/**/*.s+(a|c)ss')
+				.pipe(cached('sass'))
+				.pipe(sassLint())
+				.pipe(sassLint.format())
+				.pipe(sassLint.failOnError());
+		}));
+	}
 
 });
 
@@ -46,7 +48,10 @@ gulp.task('watch:sass', function () {
 		watch([
 			config.global.src + currentResource + '/css/**/*.scss'
 		], function () {
-			runSequence('sass');
+			runSequence(
+				['lint:sass'],
+				['sass']
+			);
 		});
 	});
 
