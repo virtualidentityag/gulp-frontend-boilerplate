@@ -11,7 +11,7 @@
 			"handlebars": true,
 			"uglify": true,
 			"cleanCss": true,
-			"favicons": false,
+			"favicons": true,
 			"cssStats": true
 		}
 	}
