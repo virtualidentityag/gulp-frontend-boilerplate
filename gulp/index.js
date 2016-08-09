@@ -19,9 +19,9 @@ gulp.task('build:dev', function (callback) {
 		[
 			'lint:sass',
 			'lint:json',
+			'lint:typescript',
 			'jshint',
-			'tslint',
-			'eslint',
+			//'eslint',
 			'iconfont'
 		],
 		[
@@ -31,9 +31,9 @@ gulp.task('build:dev', function (callback) {
 		[
 			'zetzer',
 			'sass',
-			'indexr',
 			'typescript',
-			'copy:dev:js:vendor',
+			'indexr',
+			'copy:dev:js:vendor'
 		],
 		[
 			'modernizr',
@@ -103,7 +103,8 @@ gulp.task('serve', function (callback) {
 			'watch:handlebars',
 			'watch:angularTemplates',
 			'watch:json',
-			'watch:html'
+			'watch:html',
+			'watch:typescript'
 		],
 		callback
 	);

@@ -15,13 +15,13 @@ gulp.task('livereload', function () {
 	watch([
 		config.global.dev + '/**/*',
 		config.global.src + '/resources/js/**/*.js',
-		'!' + config.global.dev + '/resources/js/**/*.js',
 		config.global.src + '/resources/bower_components/**/*',
-		'!' + config.global.dev + '/resources/bower_components/**/*',
 		config.global.src + '/_mock/**/*',
-		'!' + config.global.dev + '/_mock/**/*',
 		config.global.src + '/_assets/**/*',
+		'!' + config.global.dev + '/_mock/**/*',
 		'!' + config.global.dev + '/_assets/**/*',
+		'!' + config.global.dev + '/resources/js/vendor/**/*.js',
+		'!' + config.global.dev + '/resources/bower_components/**/*',
 		'!' + config.global.dev + '/resources/js/handlebars.templates.js'
 	], function (file) {
 		gulp.src(file.path)
