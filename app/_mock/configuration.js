@@ -5,6 +5,10 @@ global.configuration.data = global.configuration.data || {};
 //// global variables
 global.configuration.data.global = global.configuration.data.global || {};
 
+// conditional resource loader base and baseMap path
+global.configuration.data.staticResourcesBase = './resources/';
+global.configuration.data.staticResourcesContentRepoBase = './resources-content/';
+
 // breakpoints see: \app\resources\css\settings\_settings.scss
 //global.configuration.data.global.bpXSmall = 300;
 //global.configuration.data.global.bpSmall = 600;

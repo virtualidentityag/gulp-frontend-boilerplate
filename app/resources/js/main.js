@@ -2,6 +2,36 @@
 	'use strict';
 
 	$(document).ready(function () {
+		var $conditionalResources = $('[data-resources]');
+
+		// listen to resourcesReady event
+		$(window).one('resourcesReady', function() {
+			init();
+		});
+
+		/* globals resourceLoader */
+		resourceLoader({
+			base: global.configuration.data.staticResourcesBase,
+			baseMap: {
+				'##content': global.configuration.data.staticResourcesContentRepoBase
+			}
+		});
+
+		function init() {
+			global.configuration.get('initCore')();
+
+			// initialize components
+			$conditionalResources.each(function() {
+				if ($(this).data('init')) {
+					var init = eval($(this).attr('data-init')); // jshint ignore:line
+					init($(this));
+				}
+			});
+		}
+
+	});
+
+	global.configuration.set('initCore', function () {
 
 		// offcanvas click events
 		$('[data-offcanvas-show]').on('click', function (e) {
@@ -18,22 +48,6 @@
 		$('.hamburger').on('click', function () {
 			$(this).toggleClass('is-active');
 		});
-
-		// event listener for conditional resource loader
-		$(window).on('resourcesReady', function() {
-			//initialize components
-			$('[data-init]').each(function() {
-				var init = eval($(this).attr('data-init'));
-				init($(this));
-			});
-		});
-
-		// conditional resource loader
-		resourceLoader({
-			base: 'resources/'
-			// resources: optionalArrayOfResources
-		});
-
 	});
 
 	// $(window).load(function() {});
