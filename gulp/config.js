@@ -73,12 +73,12 @@ module.exports = {
     },
 
     typescript: {
-        "files": [
-            "app/resources/ts/**/*.ts"
+        'files': [
+            'app/resources/ts/**/*.ts'
         ],
-        "compilerOptions": {
-            "noImplicitAny": true,
-            "target": "es5"
+        'compilerOptions': {
+            'noImplicitAny': true,
+            'target': 'es5'
         }
     },
 
