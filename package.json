@@ -47,7 +47,7 @@
     "gulp-plumber": "1.1.0",
     "gulp-postcss": "6.1.0",
     "gulp-release-tasks": "0.0.3",
-    "gulp-sass": "2.3.1",
+    "gulp-sass": "2.3.2",
     "gulp-sass-lint": "1.1.1",
     "gulp-size": "2.1.0",
     "gulp-sourcemaps": "1.6.0",
