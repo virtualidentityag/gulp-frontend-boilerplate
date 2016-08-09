@@ -3,16 +3,22 @@ var size = require('gulp-size');
 var cleanCss = require('gulp-clean-css');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
+var projectConfig = require('../../projectConfig.json');
+var gutil = require('gulp-util');
 
 gulp.task('cleanCss:dist', function () {
 
+	if (!projectConfig.tasks.cleanCss) {
+		gutil.log(gutil.colors.yellow('cleanCss disabled'));
+	}
+
 	return mergeStream(config.global.resources.map( function(currentResource) {
 		return gulp.src(config.global.dev + currentResource + '/css/**/*.css')
-			.pipe(cleanCss(config.cleanCss))
-			.pipe(size({
+			.pipe(projectConfig.tasks.cleanCss ? cleanCss(config.cleanCss) : gutil.noop())
+			.pipe(projectConfig.tasks.cleanCss ? size({
 				title: 'minified',
 				showFiles: true
-			}))
+			}) : gutil.noop())
 			.pipe(gulp.dest(config.global.dist + currentResource + '/css/'));
 	}));
 

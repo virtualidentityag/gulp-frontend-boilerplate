@@ -21,7 +21,7 @@ gulp.task('build:dev', function (callback) {
 			'lint:json',
 			'jshint',
 			'tslint',
-			//'eslint',
+			'eslint',
 			'iconfont'
 		],
 		[

@@ -8,6 +8,7 @@ var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
+var projectConfig = require('../../projectConfig.json');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -30,13 +31,15 @@ gulp.task('sass', function () {
 
 gulp.task('lint:sass', function () {
 
-	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.src + currentResource.replace('/','') + '/css/**/*.s+(a|c)ss')
-			.pipe(cached('sass'))
-			.pipe(sassLint())
-			.pipe(sassLint.format())
-			.pipe(sassLint.failOnError());
-	}));
+	if (projectConfig.tasks.linting) {
+		return mergeStream(config.global.resources.map( function(currentResource) {
+			return gulp.src(config.global.src + currentResource.replace('/','') + '/css/**/*.s+(a|c)ss')
+				.pipe(cached('sass'))
+				.pipe(sassLint())
+				.pipe(sassLint.format())
+				.pipe(sassLint.failOnError());
+		}));
+	}
 
 });
 
