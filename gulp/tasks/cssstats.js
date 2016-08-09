@@ -20,7 +20,7 @@ gulp.task('cssstats', function () {
 			gutil.log(gutil.colors.green('Gzipped: ' + (stats.gzipSize / 1024).toFixed(2) + ' KB'));
 
 			// IE9 selector limit
-			if (stats.selectors.total > 40) {
+			if (stats.selectors.total > 4096) {
 				gutil.log(gutil.colors.red('Too much selectors for IE9 (' + stats.selectors.total + ' Selectors) in ' + filepath));
 				process.exit(1);
 			} else {
