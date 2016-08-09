@@ -4,8 +4,8 @@ var tslint = require('gulp-tslint');
 
 gulp.task('tslint', function () {
     gulp.src(config.typescript.files)
-        .pipe(tslint({
-            formatter: 'verbose'
+        .pipe(tslint(config.tslint))
+        .pipe(tslint.report({
+            emitError: false
         }))
-        .pipe(tslint.report())
 });

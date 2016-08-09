@@ -72,6 +72,15 @@ module.exports = {
         ]
     },
 
+    tslint: {
+        formatter: 'prose',
+        configuration: {
+            rules: {
+                "quotemark": [true, "single"]
+            }
+        }
+    },
+
     typescript: {
         'files': [
             'app/resources/ts/**/*.ts'
