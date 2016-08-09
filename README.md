@@ -15,29 +15,21 @@ Why we made this and what you can do with this.
 2. (On Windows if asked) choose to also install NPM and add Node.js to your path.
 3. Check the installation of Node.js and NPM by running `node -v` or `npm -v` from your command line.
 
-### 2. GIT 
-
-**GIT** is source code management. Linus Torvalds wrote it to manage Linux. 'Nuf said.
-
-1. Install as instructed on <http://www.git-scm.com>. However Windows users generally found the implementation from <https://code.google.com/p/msysgit/> to be more practical.
-2. (On Windows) choose "Run Git from the Windows Command Prompt" when asked.
-3. Test the installation of GIT by running `git --version` from your command line.
-
-### 3. Gulp
+### 2. Gulp
 
 **Gulp** is a task automator running on Node.js. It will do a lot of hard work for us preparing the source code for productive use. Amongst others Gulp combines files, shrinks them, tests code for faults etc.
 
 1. Run 'npm install --global gulp-cli' to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
 2. Test the installation of Gulp by running `gulp --version` from your command line.
 
-### 4. Bower
+### 3. Bower
 
 1. Run `npm install -g bower` from your command line to intall Bower and have it globally available.
 2. Test the installation of Bower by entering `bower --version` from your command line.
 
 ##Starting
 
-After your are finished with the step before and everything runs fine, run these steps to get your project flow.
+After your are finished with the step before and everything runs fine, run these steps to get your project on the road.
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
