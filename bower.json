@@ -1,5 +1,5 @@
 {
-  "name": "viFrontendFramework",
+  "name": "vifrontendboilerplate",
   "private": true,
   "dependencies": {
     "jquery": "2.2.3",
@@ -13,5 +13,37 @@
     "media-match": "2.0.2",
     "foundation-sites": "6.2.1",
     "resourceLoader": "virtualidentityag/conditional-resource-loader#1.0.0"
+  },
+  "overrides": {
+    "jquery": {
+
+    },
+    "normalize.css": {
+
+    },
+    "csshelper": {
+      "main": "helper.css"
+    },
+    "enquire": {
+
+    },
+    "handlebars": {
+      "main": "handlebars.runtime.js"
+    },
+    "jquery-debouncedwidth": {
+
+    },
+    "jquery.debouncedresize": {
+
+    },
+    "modernizr": {
+
+    },
+    "media-match": {
+      "main": "media.match.js"
+    },
+    "foundation-sites": {
+
+    }
   }
 }

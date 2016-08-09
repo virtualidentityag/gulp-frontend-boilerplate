@@ -2,29 +2,11 @@ var gulp = require('gulp');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
 
-gulp.task('copy:dev:bower', function () {
-
-	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.src + currentResource + '/bower_components/**/*')
-			.pipe(gulp.dest(config.global.dev + currentResource + '/bower_components/'));
-	}));
-
-});
-
 gulp.task('copy:dev:js', function () {
 
 	return mergeStream(config.global.resources.map( function(currentResource) {
 		return gulp.src(config.global.src + currentResource + '/js/*.js')
 			.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
-	}));
-
-});
-
-gulp.task('copy:dist:bower', function () {
-
-	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.src + currentResource + '/bower_components/**/*')
-			.pipe(gulp.dest(config.global.dist + currentResource + '/bower_components/'));
 	}));
 
 });
