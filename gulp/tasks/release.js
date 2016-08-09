@@ -12,6 +12,8 @@ var argv = require('yargs')
 var tag = require('gulp-tag-version');
 var push = require('gulp-git-push');
 var fs = require('fs');
+var runSequence = require('run-sequence');
+var packageOld;
 
 /**
  *  Bumping and tagging version, and pushing changes to repository.
@@ -27,9 +29,9 @@ var fs = require('fs');
  *  The 'gulp release' task is an example of a release task for a NPM package.
  **/
 
-gulp.task('release', function() {
+gulp.task('bump', function(cb) {
 
-	var packageOld = JSON.parse(fs.readFileSync('./package.json'));
+	packageOld = JSON.parse(fs.readFileSync('./package.json'));
 
 	return gulp.src(['./package.json'])
 		// bump package.json
@@ -44,13 +46,30 @@ gulp.task('release', function() {
 		.pipe(filter('package.json'))
 		// create tag based on the filtered file
 		.pipe(tag())
-		// push changes into repository
-		.pipe(push({
-			repository: 'origin',
-			refspec: 'HEAD'
-		}));
+});
 
-	var packageNew = JSON.parse(fs.readFileSync('./package.json'));
+gulp.task('gitcommit', function() {
+	return gulp.src('./app/*')
+		.pipe(git.add());
+});
 
-	git.exec({args : 'diff ' + packageOld.version + ' ' + packageNew.version + '--> diff.diff'}, function (err, stdout) {  });
+gulp.task('diff', function() {
+	git.exec({args: 'diff v' + packageOld.version + ' --> diff.diff'}, function (err, stdout) {
+		if (err) throw err;
+	});
+});
+
+gulp.task('release', function (callback) {
+	runSequence(
+		'gitcommit',
+		'bump',
+		'diff',
+		function (error) {
+			if (error) {
+				console.log(error.message);
+			} else {
+				console.log('RELEASE FINISHED SUCCESSFULLY');
+			}
+			callback(error);
+		});
 });
