@@ -43,6 +43,20 @@ After your are finished with the step before and everything runs fine, run these
 
 How to set up your personal boilerplate, with dependencies you really need.
 
+###projectConfig.json
+
+This file lets you enable and disable certain tasks as well as specify additional resource folders.
+
+__resource folders__
+To add additional resource folders, create the folders and add the paths to the global.resources array.
+The path needs to be prepended with a "/" and relative to the app folder.
+The default resource folder is "/resources"
+
+__tasks__
+To disable certain tasks, simply set the specific task to false. 
+At the moment the tasks that can be disabled are: "linting", "iconfont", "angular", "handlebars", "uglify", "cleanCss", "favicons", "cssStats".
+Per default all tasks are enabled.
+
 ##Development
 
 run the boilerplate with `gulp serve`
