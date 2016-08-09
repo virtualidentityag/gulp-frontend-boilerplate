@@ -11,6 +11,7 @@ var argv = require('yargs')
 	}).argv;
 var tag = require('gulp-tag-version');
 var push = require('gulp-git-push');
+var fs = require('fs');
 
 /**
  *  Bumping and tagging version, and pushing changes to repository.
@@ -27,6 +28,9 @@ var push = require('gulp-git-push');
  **/
 
 gulp.task('release', function() {
+
+	var packageOld = JSON.parse(fs.readFileSync('./package.json'));
+
 	return gulp.src(['./package.json'])
 		// bump package.json
 		.pipe(bump({
@@ -44,5 +48,9 @@ gulp.task('release', function() {
 		.pipe(push({
 			repository: 'origin',
 			refspec: 'HEAD'
-		}))
+		}));
+
+	var packageNew = JSON.parse(fs.readFileSync('./package.json'));
+
+	git.exec({args : 'diff ' + packageOld.version + ' ' + packageNew.version + '--> diff.diff'}, function (err, stdout) {  });
 });
