@@ -54,8 +54,6 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'copy:dev:js',
-			//'copy:dev:bower',
-			//'copy:dist:bower',
 			'copy:dist:flash',
 			'copy:dist:json',
 			'copy:dist:fonts',
