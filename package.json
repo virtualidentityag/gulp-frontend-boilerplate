@@ -24,6 +24,7 @@
 		"gulp-debug": "2.1.2",
 		"gulp-declare": "0.3.0",
 		"gulp-eslint": "2.0.0",
+		"gulp-favicons": "2.2.6",
 		"gulp-filter": "3.0.1",
 		"gulp-handlebars": "4.0.0",
 		"gulp-htmlhint": "0.3.1",
