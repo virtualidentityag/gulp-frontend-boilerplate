@@ -30,8 +30,9 @@ gulp.task('build:dev', function (callback) {
 		[
 			'zetzer',
 			'sass',
+			'typescript',
 			'indexr',
-			'copy:dev:js:vendor',
+			'copy:dev:js:vendor'
 		],
 		[
 			'modernizr',
@@ -98,7 +99,8 @@ gulp.task('serve', function (callback) {
 			'watch:handlebars',
 			'watch:angularTemplates',
 			'watch:json',
-			'watch:html'
+			'watch:html',
+			'watch:typescript'
 		],
 		callback
 	);
