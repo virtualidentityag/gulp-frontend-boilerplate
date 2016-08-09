@@ -12,9 +12,18 @@ module.exports = {
         src:  src,
         dev:  dev,
         dist: dist,
-		resources: ['/resources']
+		resources: ['/resources'],
+		tasks: {
+			linting: true,
+			iconfont: true,
+			angular: true,
+			handlebars: true,
+			uglify: true,
+			cleanCss: true,
+			favicons: true,
+			cssStats: true
+		}
     },
-
 
     //=== Plugins ===//
     autoprefixer: {

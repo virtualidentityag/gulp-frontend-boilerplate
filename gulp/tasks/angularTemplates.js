@@ -5,11 +5,10 @@ var htmlmin = require('gulp-htmlmin');
 var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 var config = require('./../config');
-var projectConfig = require('../../projectConfig.json');
 
 gulp.task('angularTemplates', function () {
 
-	if (projectConfig.tasks.angular) {
+	if (config.global.tasks.angular) {
 		return gulp.src([
 			config.global.src + '/resources/templates/angular/**/*.html'
 		])
@@ -29,7 +28,7 @@ gulp.task('angularTemplates', function () {
 
 gulp.task('watch:angularTemplates', function () {
 
-	if (projectConfig.tasks.angular) {
+	if (config.global.tasks.angular) {
 		watch([
 			config.global.src + '/resources/templates/angular/**/*.html'
 		], function () {

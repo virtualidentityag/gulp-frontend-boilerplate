@@ -3,11 +3,10 @@ var tap = require('gulp-tap');
 var gutil = require('gulp-util');
 var cssstats = require('gulp-cssstats');
 var config = require('./../config');
-var projectConfig = require('../../projectConfig.json');
 
 gulp.task('cssstats', function () {
 
-	if (projectConfig.tasks.cssStats) {
+	if (config.global.tasks.cssStats) {
 		return gulp.src([
 			config.global.dist + '/resources/css/**/*.css'
 		])
