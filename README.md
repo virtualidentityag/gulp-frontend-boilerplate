@@ -109,6 +109,10 @@ run the boilerplate with `gulp build`
 If everything is correct, you will find a build version of your code in the **dist** directory.
 This contains among others a min and concat version of your js and css files
 
+##Important
+When you want to add a bower package, make sure its bower.json has defined a main file. Otherwise you have to add a main file to the override section in [this projects bower.json file](./bower.json).
+This will trigger the gulp task to only pull out the main files of the packages to prevent storage size overhead.
+
 ##Troubleshooting
 
 ###Line-break errors in eslint
