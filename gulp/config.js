@@ -82,7 +82,21 @@ module.exports = {
         includePaths: [
             'app/resources/bower_components/foundation-sites/scss/'
         ]
-    }
+    },
+
+	favicons: {
+		appName: "gulp-frontend-boilerplate",
+		background: "#020307",
+		path: "favicons/",
+		display: "standalone",
+		orientation: "portrait",
+		version: 1.0,
+		logging: false,
+		online: false,
+		html: "htmlhead.favicons.html",
+		pipeHTML: true,
+		replace: true
+	}
 
 };
 
