@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "jquery": "2.2.3",
-    "normalize.css": "3.0.3",
+    "normalize.css": "4.2.0",
     "csshelper": "virtualidentityag/vi-css-helper",
     "enquire": "2.1.2",
     "handlebars": "4.0.5",
