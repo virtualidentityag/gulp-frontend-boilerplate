@@ -46,7 +46,10 @@ gulp.task('watch:sass', function () {
 		watch([
 			config.global.src + currentResource + '/css/**/*.scss'
 		], function () {
-			runSequence('sass');
+			runSequence(
+				['lint:sass'],
+				['sass']
+			);
 		});
 	});
 
