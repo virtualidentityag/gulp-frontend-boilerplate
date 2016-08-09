@@ -2,10 +2,9 @@ module.exports = {
 	'Visual Test - Stage Component': function(browser) {
 		browser
 			.windowMaximize()
-			.url('http://www.google.de')
+			.url(browser.launch_url + '/90demo.01icons.html')
 			.waitForElementPresent('body', 3000)
-			.assert.title("Google")
-			.pause(5000)
+			.assert.title('VIGulpFrontendBoilerplate')
 			.end();
 	}
 };
