@@ -48,7 +48,7 @@
 		"gulp-sass": "2.3.1",
 		"gulp-sass-lint": "1.1.1",
 		"gulp-size": "2.1.0",
-		"gulp-sourcemaps": "1.6.0"
+		"gulp-sourcemaps": "1.6.0",
 		"gulp-svg2ttf": "1.1.5",
 		"gulp-svgicons2svgfont": "3.0.1",
 		"gulp-tap": "0.1.3",
