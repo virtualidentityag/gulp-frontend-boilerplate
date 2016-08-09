@@ -19,6 +19,21 @@
 			$(this).toggleClass('is-active');
 		});
 
+		// event listener for conditional resource loader
+		$(window).on('resourcesReady', function() {
+			//initialize components
+			$('[data-init]').each(function() {
+				var init = eval($(this).attr('data-init'));
+				init($(this));
+			});
+		});
+
+		// conditional resource loader
+		resourceLoader({
+			base: 'resources/'
+			// resources: optionalArrayOfResources
+		});
+
 	});
 
 	// $(window).load(function() {});

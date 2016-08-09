@@ -22,15 +22,3 @@ global.configuration.data.global = global.configuration.data.global || {};
 //// i18n
 global.configuration.data.i18n = global.configuration.data.i18n || {};
 global.configuration.data.i18n.browserwarning = 'Ihr Browser ist veraltet! Die Seite wird möglicherweise in Funktionalität und Darstellung eingeschränkt sein.';
-
-//// conditional loader
-global.configuration.data.conditionalLoaderFrameworkDefaults = [
-    //{
-    //	test: 1 === 1, // or function with boolean return value
-    //	styles: ['some-style.css'],
-    //	scripts: ['some-script.js'],
-    //  scriptsDone: function(){
-    //      console.log('script was loaded');
-    //  }
-    //}
-];
