@@ -32,6 +32,7 @@ gulp.task('build:dev', function (callback) {
 			'zetzer',
 			'sass',
 			'indexr',
+			'main-bower-files',
 			'typescript',
 			'copy:dev:js:vendor',
 		],
@@ -53,8 +54,8 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'copy:dev:js',
-			'copy:dev:bower',
-			'copy:dist:bower',
+			//'copy:dev:bower',
+			//'copy:dist:bower',
 			'copy:dist:flash',
 			'copy:dist:json',
 			'copy:dist:fonts',
