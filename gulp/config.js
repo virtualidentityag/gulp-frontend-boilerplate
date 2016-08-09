@@ -1,4 +1,12 @@
 var fs = require('fs');
+var _ = require('lodash');
+
+try {
+	var projectConfig = require('../projectConfig.json');
+} catch (err) {
+	console.log(err + ' -- using default values');
+	var projectConfig = false;
+}
 
 var src  = 'app';
 var dev  = '.tmp';
@@ -9,7 +17,8 @@ module.exports = {
     global: {
         src:  src,
         dev:  dev,
-        dist: dist
+        dist: dist,
+		resources: ['/resources']
     },
 
     zetzer: {
@@ -76,3 +85,7 @@ module.exports = {
     }
 
 };
+
+if(projectConfig) {
+	_.merge(module.exports, projectConfig);
+}
