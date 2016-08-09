@@ -108,3 +108,12 @@ gulp.task('copy:dist:mock', function () {
 		.pipe(gulp.dest(config.global.dist + '/_mock/'));
 
 });
+
+gulp.task('copy:dist:hbs', function () {
+
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		return gulp.src(config.global.src + currentResource + '/templates/**/*')
+			.pipe(gulp.dest(config.global.dist + currentResource + '/templates/'));
+	}));
+
+});

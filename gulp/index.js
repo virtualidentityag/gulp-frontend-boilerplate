@@ -20,6 +20,7 @@ gulp.task('build:dev', function (callback) {
 			'lint:sass',
 			'lint:json',
 			'jshint',
+			'tslint',
 			//'eslint',
 			'iconfont'
 		],
@@ -31,6 +32,7 @@ gulp.task('build:dev', function (callback) {
 			'zetzer',
 			'sass',
 			'indexr',
+			'typescript',
 			'copy:dev:js:vendor',
 		],
 		[
@@ -61,6 +63,7 @@ gulp.task('build', function (callback) {
 			'copy:dist:css',
 			'copy:dist:mock',
 			'copy:dist:js:vendor',
+			'copy:dist:hbs',
 		],
 		[
 			'uglify:dist',
