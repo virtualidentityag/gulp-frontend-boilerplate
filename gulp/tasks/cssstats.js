@@ -8,7 +8,7 @@ var config = require('./../config');
 gulp.task('cssstats', function () {
 
 	return gulp.src([
-			config.global.dist + '/resources/css/styles.all.min.css'
+			config.global.dist + '/resources/css/**/*.css'
 		])
 		.pipe(cssstats())
 		.pipe(tap(function (file) {
@@ -20,8 +20,9 @@ gulp.task('cssstats', function () {
 			gutil.log(gutil.colors.green('Gzipped: ' + (stats.gzipSize / 1024).toFixed(2) + ' KB'));
 
 			// IE9 selector limit
-			if (stats.selectors.total > 4095) {
-				throw new gutil.PluginError('cssstats', 'Too much selectors for IE9 (' + stats.selectors.total + ') in ' + filepath);
+			if (stats.selectors.total > 40) {
+				gutil.log(gutil.colors.red('Too much selectors for IE9 (' + stats.selectors.total + ' Selectors) in ' + filepath));
+				process.exit(1);
 			} else {
 				gutil.log(gutil.colors.green('Selectors: ' + stats.selectors.total));
 			}
