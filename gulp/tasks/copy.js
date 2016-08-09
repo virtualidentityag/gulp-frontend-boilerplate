@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
-var projectConfig = require('../../projectConfig.json');
 
 gulp.task('copy:dev:bower', function () {
 
