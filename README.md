@@ -19,13 +19,19 @@ Why we made this and what you can do with this.
 
 **Gulp** is a task automator running on Node.js. It will do a lot of hard work for us preparing the source code for productive use. Amongst others Gulp combines files, shrinks them, tests code for faults etc.
 
-1. Run 'npm install --global gulp-cli' to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
+1. Run `npm install -g gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
 2. Test the installation of Gulp by running `gulp --version` from your command line.
 
 ### 3. Bower
 
-1. Run `npm install -g bower` from your command line to intall Bower and have it globally available.
+1. Run `npm install -g bower` from your command line to install Bower and have it globally available.
 2. Test the installation of Bower by entering `bower --version` from your command line.
+
+### 4. Typings
+
+1. Run `npm install -g typings` from your command line to install Typings and have it globally available.
+2. Test the installation of Typings by entering `typings --version` from your command line.
+
 
 ##Starting
 
@@ -33,9 +39,8 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `npm install
-4. Run `bower install`
-5. To
+3. Run `npm install` (`bower install` and `typings install --global` are launched automatically)
+4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
 
