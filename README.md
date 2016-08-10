@@ -68,9 +68,9 @@ run the boilerplate with `gulp serve`
 
 ###1. Our helpers
 
-**{{= ftf.include(, {}) }}** - Include a html file. You can  pass a json object with own data
-**{{= ftf.text(500) }}** - Generate dummy text files with 500 chars
-**{{= ftf.renderHbs("demo", "app/_mock/demo.json") }}** - Render a hbs file with json data in your template
+* `{{= ftf.include("path/to/file.html", { myValue: 123 }) }}` - Include a html file. You can  pass a json object with own data
+* `{{= ftf.text(500) }}` - Generate lorem ipsum text with 500 chars
+* `{{= ftf.renderHbs("demo", "app/_mock/demo.json") }}` - Render a hbs file with json data into static templates
 
 @ToDo - add all helper functions
 
@@ -80,16 +80,18 @@ run the boilerplate with `gulp serve`
 * `/app/_assets` holds static placeholder files like images, audio- and video files.
 * `/app/_mock` holds files that would be generated dynamically (such as `nav.json`) by the cms implementing the frontend
 * `/app/_partials` holds snippets of html code that are reused throughout the frontend
-* `/app/resources` holds JavaScript, CSS and other files
-* `/test` is where we put automated tests
+* `/app/resources` holds JavaScript, TypeScript, SASS/CSS and other files
+* `/test` is where we put automated tests for Travis CI and Nightwatch Testing with Selenium
 
 ##Testing
 
-Nightwatch.js is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
+**Nightwatch.js** is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
 perform commands and assertions on DOM elements.
 
 There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
 local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
+
+**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal.
 
 ###gulp test
 
