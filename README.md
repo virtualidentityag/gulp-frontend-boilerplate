@@ -19,13 +19,19 @@ Why we made this and what you can do with this.
 
 **Gulp** is a task automator running on Node.js. It will do a lot of hard work for us preparing the source code for productive use. Amongst others Gulp combines files, shrinks them, tests code for faults etc.
 
-1. Run 'npm install --global gulp-cli' to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
+1. Run `npm install -g gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
 2. Test the installation of Gulp by running `gulp --version` from your command line.
 
 ### 3. Bower
 
-1. Run `npm install -g bower` from your command line to intall Bower and have it globally available.
+1. Run `npm install -g bower` from your command line to install Bower and have it globally available.
 2. Test the installation of Bower by entering `bower --version` from your command line.
+
+### 4. Typings
+
+1. Run `npm install -g typings` from your command line to install Typings and have it globally available.
+2. Test the installation of Typings by entering `typings --version` from your command line.
+
 
 ##Starting
 
@@ -33,9 +39,8 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `npm install
-4. Run `bower install`
-5. To
+3. Run `npm install` (`bower install` and `typings install --global` are launched automatically)
+4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
 
@@ -63,9 +68,9 @@ run the boilerplate with `gulp serve`
 
 ###1. Our helpers
 
-**{{= ftf.include(, {}) }}** - Include a html file. You can  pass a json object with own data
-**{{= ftf.text(500) }}** - Generate dummy text files with 500 chars
-**{{= ftf.renderHbs("demo", "app/_mock/demo.json") }}** - Render a hbs file with json data in your template
+* `{{= ftf.include("path/to/file.html", { myValue: 123 }) }}` - Include a html file. You can  pass a json object with own data
+* `{{= ftf.text(500) }}` - Generate lorem ipsum text with 500 chars
+* `{{= ftf.renderHbs("demo", "app/_mock/demo.json") }}` - Render a hbs file with json data into static templates
 
 @ToDo - add all helper functions
 
@@ -75,16 +80,18 @@ run the boilerplate with `gulp serve`
 * `/app/_assets` holds static placeholder files like images, audio- and video files.
 * `/app/_mock` holds files that would be generated dynamically (such as `nav.json`) by the cms implementing the frontend
 * `/app/_partials` holds snippets of html code that are reused throughout the frontend
-* `/app/resources` holds JavaScript, CSS and other files
-* `/test` is where we put automated tests
+* `/app/resources` holds JavaScript, TypeScript, SASS/CSS and other files
+* `/test` is where we put automated tests for Travis CI and Nightwatch Testing with Selenium
 
 ##Testing
 
-Nightwatch.js is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
+**Nightwatch.js** is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
 perform commands and assertions on DOM elements.
 
 There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
 local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
+
+**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal.
 
 ###gulp test
 
@@ -126,6 +133,14 @@ This contains among others a min and concat version of your js and css files
 ##Important
 When you want to add a bower package, make sure its bower.json has defined a main file. Otherwise you have to add a main file to the override section in [this projects bower.json file](./bower.json).
 This will trigger the gulp task to only pull out the main files of the packages to prevent storage size overhead.
+
+##Release
+There is a gulp task for doing releases. Use gulp release --type=[major,minor,patch,prerelease] will do the following steps for you:
+1. update package.json version
+2. git commit the changed package.json
+3. git push
+4. set a GIT tag for this version
+5. coming soon: create a diff changelog from last version to this version
 
 ##Troubleshooting
 
