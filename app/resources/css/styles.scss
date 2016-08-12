@@ -10,6 +10,9 @@
 @import "fonts/fonts";
 @import "../../../.iconfont/icons";
 
+/* breakpoint */
+@import "../bower_components/breakpoint/breakpoint/breakpoint";
+
 /* susy */
 @import "../bower_components/susy/sass/susy";
 @import "settings/susy";
