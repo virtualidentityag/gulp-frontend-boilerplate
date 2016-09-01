@@ -86,12 +86,17 @@ gulp.task('indexr', function () {
 
 gulp.task('watch:zetzer', function () {
 
-	watch([
+	var paths = [
 		config.global.src + '/*.html',
 		config.global.src + '/_partials/**/*.html',
-		config.global.src + '/_mock/**/*.json',
-		config.global.dev + '/resources/js/handlebars.templates.js'
-	], function () {
+		config.global.src + '/_mock/**/*.json'
+	];
+
+	if(config.global.tasks.handlebars) {
+		paths.push(config.global.dev + '/resources/js/handlebars.templates.js');
+	}
+
+	watch(paths, function () {
 		runSequence('zetzer');
 	});
 
