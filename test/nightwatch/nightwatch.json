@@ -21,7 +21,7 @@
   "test_settings" : {
     "default" : {
 		"launch_url": "",
-		"selenium_port": ,
+		"selenium_port": "",
 		"selenium_host": "",
 		"silent": true,
 		"screenshots": {

@@ -76,6 +76,7 @@
     "lodash": "4.13.1",
     "main-bower-files": "2.13.1",
     "merge-stream": "1.0.0",
+    "nightwatch-html-reporter": "^1.0.8",
     "node-resemble-js": "0.0.5",
     "opn": "4.0.1",
     "require-dir": "0.3.0",
