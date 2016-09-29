@@ -76,6 +76,7 @@
     "lodash": "4.13.1",
     "main-bower-files": "2.13.1",
     "merge-stream": "1.0.0",
+    "modr-typescript": "git+https://github.com/janrembold/modr-typescript.git",
     "node-resemble-js": "0.0.5",
     "opn": "4.0.1",
     "require-dir": "0.3.0",
