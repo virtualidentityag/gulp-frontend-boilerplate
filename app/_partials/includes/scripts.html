@@ -20,3 +20,17 @@
 <!-- build:remove -->
 <script src="resources/js/jquery.widthInfo.js"></script>
 <!-- endbuild -->
+
+
+<script src="resources/js/almond.js"></script>
+<!--<script src="resources/js/require.js"></script>-->
+<script src="resources/js/outFile.js"></script>
+
+<script>
+	$(document).ready(function () {
+		require(['jquery', 'base'], function ( $, myModule ) {
+			var demo = new myModule.Base();
+			demo.test();
+		});
+	});
+</script>

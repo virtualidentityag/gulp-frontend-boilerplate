@@ -104,8 +104,9 @@ module.exports = {
     typescript: {
 		noImplicitAny: true,
 		suppressImplicitAnyIndexErrors: true,
-		module: 'umd',
-		target: 'ES5'
+		module: 'amd',
+		target: 'ES5',
+		outFile: 'outFile.js'
     },
 
     uglify: {

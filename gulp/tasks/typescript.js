@@ -11,7 +11,7 @@ var config = require('./../config');
 gulp.task('typescript', function () {
 
 	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.src + currentResource + '/js/**/*.ts')
+		return gulp.src(config.global.src + currentResource + '/js/base.ts')
 			.pipe(typescript(config.typescript))
 			.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
 	}));

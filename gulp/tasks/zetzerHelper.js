@@ -53,5 +53,9 @@ module.exports = {
 
 	inc: function(file) {
 		return this.include(file);
+	},
+
+	highlight: function(selector) {
+		return '<pre data-highlight="'+selector+'"><code class="language-markup"></code></pre>';
 	}
 };
