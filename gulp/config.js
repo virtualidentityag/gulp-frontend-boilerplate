@@ -104,7 +104,7 @@ module.exports = {
     typescript: {
 		noImplicitAny: true,
 		suppressImplicitAnyIndexErrors: true,
-		module: 'umd',
+		module: 'commonjs',
 		target: 'ES5'
     },
 
