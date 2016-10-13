@@ -24,13 +24,47 @@
 
 <script src="resources/js/almond.js"></script>
 <!--<script src="resources/js/require.js"></script>-->
-<script src="resources/js/outFile.js"></script>
+<!--<script src="resources/js/outFile.js"></script>-->
+<script src="resources/js/demo.js"></script>
+<script src="resources/js/demo2.js"></script>
+<!--<script src="resources/js/demo/demo.mod1.js"></script>-->
+<!--<script src="resources/js/demo/demo.mod2.js"></script>-->
+<!--<script src="resources/js/JqueryPlugin.js"></script>-->
 
 <script>
 	$(document).ready(function () {
-		require(['jquery', 'base'], function ( $, myModule ) {
-			var demo = new myModule.Base();
-			demo.test();
-		});
+//		var resources = {
+//			'demo': ['demo'],
+//			'demo2': ['demo2']
+//		};
+//
+//		var test = function(name, resource) {
+//			require(resource, function (mod) {
+//				$.fn[name] = function(options) {
+//					return this.each(function() {
+//						var $this = $(this);
+//						if(!$this.data(name)) {
+//							$this.data(name, new mod.default(this, options));
+//						}
+//					});
+//				};
+//
+//				if(name === 'demo') {
+//					$('body').demo();
+//				}
+//
+//				if(name === 'demo2') {
+//					$('body').demo2();
+//				}
+//			});
+//		};
+//
+//		for(var name in resources) {
+//			if(resources.hasOwnProperty(name)) {
+//
+//				test(name, resources[name]);
+//
+//			}
+//		}
 	});
 </script>
