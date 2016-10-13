@@ -82,8 +82,10 @@
     "require-dir": "0.3.0",
     "run-sequence": "1.1.5",
     "serve-static": "1.10.2",
+    "ts-loader": "^0.9.1",
     "tslint": "3.14.0",
     "vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
+    "webpack-stream": "^3.2.0",
     "yargs": "4.8.1"
   },
   "engines": {

@@ -112,6 +112,22 @@ module.exports = {
         preserveComments: 'license'
     },
 
+	webpack: {
+		output: {
+			filename: 'bundle.js',
+			publicPath: 'resources/js/'
+		},
+		resolve: {
+			// Add `.ts` and `.tsx` as a resolvable extension.
+			extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+		},
+		module: {
+			loaders: [
+				{ test: /\.tsx?$/, loader: 'ts-loader' }
+			]
+		}
+	},
+
     zetzer: {
         partials: src + '/_partials',
         templates: src + '/_partials/layout',
