@@ -54,7 +54,8 @@
 	  ],
 	  "no-trailing-spaces": [
 		  "warn"
-	  ]
+	  ],
+    "key-spacing": 1
   },
   "env": {
     "es6": true,
