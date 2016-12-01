@@ -6,11 +6,12 @@ var uglify = require('gulp-uglify');
 var cleanCss = require('gulp-clean-css');
 var config = require('./../config');
 
-
 gulp.task('useref', function () {
 
 	return gulp.src(config.global.dev + '/*.html')
-		.pipe(useref())
+		.pipe(useref({
+			noAssets: true
+		}))
 		.pipe(filter(['**/*.html']))
 		.pipe(gulp.dest(config.global.dist));
 
