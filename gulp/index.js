@@ -61,8 +61,10 @@ gulp.task('build', function (callback) {
 			'copy:dist:assets',
 			'copy:dist:css',
 			'copy:dist:mock',
-			'copy:dist:js:vendor',
 			'copy:dist:hbs'
+		],
+		[
+			'copy:dist:js:vendor'
 		],
 		[
 			'uglify:dist',
