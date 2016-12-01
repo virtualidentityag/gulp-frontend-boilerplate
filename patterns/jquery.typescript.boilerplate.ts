@@ -12,7 +12,7 @@
 		private element: Element;
 		private $element: JQuery;
 		private options: any;
-		private defaults: {
+		private defaults: any = {
 			option1: 'change this'
 		};
 
