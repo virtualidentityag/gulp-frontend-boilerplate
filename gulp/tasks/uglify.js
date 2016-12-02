@@ -14,13 +14,19 @@ gulp.task('uglify:dist', function () {
 	}
 
 	return mergeStream(config.global.resources.map( function(currentResource) {
-		return gulp.src(config.global.dev + currentResource + '/js/**/*.js')
+		var srcArray = [config.global.dev + currentResource + '/js/**/*.js'];
+
+		config.global.uglifyExceptions.forEach(function(exception) {
+			srcArray.push('!' + config.global.dev + currentResource + '/js/**/' + exception);
+		});
+
+		return gulp.src(srcArray)
 			.pipe(sourcemaps.init())
 			.pipe(config.global.tasks.uglify ? uglify() : gutil.noop())
 			.pipe(config.global.tasks.uglify ? size({
-                    title: 'uglified',
-                    showFiles: true
-                }) : gutil.noop())
+				title: 'uglified',
+				showFiles: true
+			}) : gutil.noop())
 			.pipe(sourcemaps.write())
 			.pipe(gulp.dest(config.global.dist + currentResource + '/js/'));
 	}));

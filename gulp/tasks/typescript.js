@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var typescript = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
 var tslint = require('gulp-tslint');
 var mergeStream = require('merge-stream');
 var watch = require('gulp-watch');
@@ -12,11 +13,13 @@ var config = require('./../config');
 gulp.task('typescript', function () {
 
 	if (config.global.tasks.typescript) {
-		return mergeStream(config.global.resources.map( function(currentResource) {
-			return gulp.src(config.global.src + currentResource + '/js/**/*.ts')
-				.pipe(typescript(config.typescript))
-				.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
-		}));
+      return mergeStream(config.global.resources.map( function(currentResource) {
+        return gulp.src(config.global.src + currentResource + '/js/**/*.ts')
+          .pipe(sourcemaps.init())
+          .pipe(typescript(config.typescript))
+          .pipe(sourcemaps.write())
+          .pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
+      }));
 	} else {
 		gutil.log(gutil.colors.yellow('typescript disabled'));
 	}
