@@ -1,20 +1,16 @@
 var gulp = require('gulp');
 var image = require('gulp-image');
+var gutil = require('gulp-util');
 var config = require('./../config');
 
 
-gulp.task('image:assets:dist', function () {
+gulp.task('image:dist', function () {
 
-	return gulp.src(config.global.dist + '/assets/**/*')
-		.pipe(image())
-		.pipe(gulp.dest(config.global.dist + '/assets/'));
-
-});
-
-gulp.task('image:resources:dist', function () {
-
-	return gulp.src(config.global.dist + '/resources/img/**/*')
-		.pipe(image())
-		.pipe(gulp.dest(config.global.dist + '/resources/img/'));
-
+	if (config.global.tasks.image) {
+		return gulp.src(config.global.dist + '/resources/img/**/*')
+			.pipe(image(config.image))
+			.pipe(gulp.dest(config.global.dist + '/resources/img/'));
+	} else {
+		gutil.log(gutil.colors.yellow('image compressor disabled'));
+	}
 });
