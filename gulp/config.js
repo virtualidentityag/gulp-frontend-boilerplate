@@ -22,7 +22,8 @@ module.exports = {
 			cleanCss: true,
 			favicons: true,
 			cssStats: true,
-			typescript: true
+			typescript: true,
+			image: true
 		},
 		uglifyExceptions: []
     },
@@ -79,6 +80,18 @@ module.exports = {
         fontPath: '../fonts/icons/',
         cssClass: 'icon'
     },
+
+	image: {
+		pngquant: true,
+		optipng: false,
+		zopflipng: true,
+		jpegRecompress: false,
+		jpegoptim: true,
+		mozjpeg: true,
+		gifsicle: true,
+		svgo: true,
+		concurrent: 10
+	},
 
     modernizr: {
         options : [
