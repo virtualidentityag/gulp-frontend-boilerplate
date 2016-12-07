@@ -13,7 +13,8 @@
 			"cleanCss": true,
 			"favicons": true,
 			"cssStats": true,
-			"typescript": true
+			"typescript": true,
+			"image": true
 		},
 		"uglifyExceptions": [
 			"filename.js"
