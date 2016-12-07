@@ -62,6 +62,42 @@ To disable certain tasks, simply set the specific task to false.
 At the moment the tasks that can be disabled are: "linting", "iconfont", "angular", "handlebars", "uglify", "cleanCss", "favicons", "cssStats".
 Per default all tasks are enabled.
 
+##Patterns
+
+We use different boilerplates to keep our coding structure as homogenous as possible. 
+
+###JavaScript / TypeScript
+
+#### jQuery TypeScript Plugins - modr framework
+
+To get the full benefit of object oriented frontend plugins, component based configuration and conditional loading we use the modr framework.
+https://github.com/janrembold/modr-typescript
+
+The corresponding pattern file can be found in /patterns/modr.boilerplate.base.ts
+ 
+
+#### jQuery TypeScript Plugins - standalone
+
+The standalone jQuery TypeScript Plugin is a TypeScript port of the legacy jQuery Plugin boilerplate.
+It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like code completion and type checking. 
+We also use the possibility to compile to ES5 or ES6. Depending on the projects browser matrix.   
+
+The corresponding pattern file can be found in /patterns/jquery.typescript.boilerplate.ts
+
+
+#### Plain and simple jQuery Plugins (legacy way)
+
+That is the plain legacy jQuery Plugin boilerplate.  
+
+The corresponding pattern file can be found in /patterns/jquery.typescript.boilerplate.ts
+
+
+###CSS / SASS
+
+We compile the CSS stylesheets from SASS. To organize the code as efficient as possible we use the BEM methodology: 
+see https://github.com/virtualidentityag/viFrontendStandards/wiki/vi-BEM  
+
+
 ##Development
 
 run the boilerplate with `gulp serve`

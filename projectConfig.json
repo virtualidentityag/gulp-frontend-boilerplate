@@ -13,6 +13,9 @@
 			"cleanCss": true,
 			"favicons": true,
 			"cssStats": true
-		}
+		},
+		"uglifyExceptions": [
+			"filename.js"
+		]
 	}
 }

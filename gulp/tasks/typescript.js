@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var typescript = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
 var tslint = require('gulp-tslint');
 var mergeStream = require('merge-stream');
 var watch = require('gulp-watch');
@@ -12,7 +13,9 @@ gulp.task('typescript', function () {
 
 	return mergeStream(config.global.resources.map( function(currentResource) {
 		return gulp.src(config.global.src + currentResource + '/js/**/*.ts')
+			.pipe(sourcemaps.init())
 			.pipe(typescript(config.typescript))
+			.pipe(sourcemaps.write())
 			.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
 	}));
 
