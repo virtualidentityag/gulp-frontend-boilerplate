@@ -1,4 +1,4 @@
-/// <reference path="../../../typings/globals/jquery/index.d.ts" />
+/// <reference path="../typings/globals/jquery/index.d.ts" />
 
 (function($: JQueryStatic, window: any, document: any) {
 
@@ -9,10 +9,10 @@
 	{
 		public static NAME: string = 'pluginName';
 
-		private _el: Element;
-		private _$el: JQuery;
-		private _options: any;
-		private _defaults: {
+		private element: Element;
+		private $element: JQuery;
+		private options: any;
+		private defaults: any = {
 			option1: 'change this'
 		};
 
@@ -26,11 +26,11 @@
 		{
 			var self = this;
 
-			self._el = element;
-			self._$el = $(element);
+			self.element = element;
+			self.$element = $(element);
 
 			// extend default options
-			self._options = $.extend({}, self._defaults, options);
+			self.options = $.extend({}, self.defaults, options);
 
 			// init plugin
 			self.init();
@@ -45,7 +45,7 @@
 
 			console.log('init typescript boilerplate plugin');
 
-			self._$el.on('click', () => {
+			self.$element.on('click', () => {
 				console.log('clicked element');
 			});
 		}
