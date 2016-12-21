@@ -13,7 +13,7 @@
     "media-match": "2.0.2",
     "resourceLoader": "virtualidentityag/conditional-resource-loader#1.0.0",
     "susy": "^2.2.12",
-    "breakpoint": "^4.6.4"
+    "breakpoint-sass": "^2.7.0"
   },
   "overrides": {
     "csshelper": {

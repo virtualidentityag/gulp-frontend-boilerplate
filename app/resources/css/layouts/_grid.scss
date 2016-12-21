@@ -1,74 +1,15 @@
-section {
-  &:after {
-    position: relative;
-    top: 60px;
-    display: block !important;
-    border-top: 1px solid $ui-grey-light;
-    content: "";
-    padding-bottom: 60px;
-    margin: 0 gutter();
-  }
-
-  &.no-divider,
-  &:last-of-type {
-    &:after {
-      border-top: none;
-      display: inherit;
-      padding-bottom: 0;
-      margin: 0;
-    }
-  }
-
-  > .divider {
-    margin-left: gutter();
-    margin-right: gutter();
-  }
-}
-
-/* default container row */
 .row {
-  @include container();
-  @include clearfix();
-  padding: 0 $outer-padding-no-gutter;
+	@include container();
+	@include clearfix();
 }
 
-.nested-row {
-  @include container();
-  @include clearfix();
+.columns {
+	position: relative;
+	margin-top: 10px;
+
+	@include span(12);
 }
 
-/* default grid elements with a single breakpoint */
-@include make-grid-gutters( unquote('.xs-12') );
-@include make-grid-columns("xs", $xsmall);
-@include make-grid-columns("sm", $small);
-@include make-grid-columns("md", $medium);
-@include make-grid-columns("lg", $large);
-
-/* Center and unfloat all grid elements */
-.centered {
-  float: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* remove gutters */
-.no-gutter {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.new-line {
-  @include break;
-}
-
-@include breakpoint($medium) {
-  .col-md-offset-2 {
-    @include pre(2);
-  }
-}
-
-@include breakpoint($large) {
-  .col-md-push-2 {
-    @include pre(2);
-  }
-}
+@include make-grid-columns("small", $small);
+@include make-grid-columns("medium", $medium);
+@include make-grid-columns("large", $large);

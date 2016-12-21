@@ -11,11 +11,12 @@
 @import "../../../.iconfont/icons";
 
 /* breakpoint */
-@import "../bower_components/breakpoint/breakpoint/breakpoint";
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
 
 /* susy */
 @import "../bower_components/susy/sass/susy";
 @import "settings/susy";
+@include border-box-sizing;
 
 /* layout */
 @import "layouts/default";

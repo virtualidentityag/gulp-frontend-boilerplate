@@ -1,8 +1,9 @@
 // set susy defaults
 $susy: (
-    columns: 12,
-    container: 1200px,
-    gutters: .6,
-    gutter-position: inside,
-    global-box-sizing: border-box
+	columns: 12,
+	//container: 1280px,
+	column-width: 160px,
+	gutter: 40px/160px,
+	gutter-position: inside-static,
+	global-box-sizing: border-box
 );

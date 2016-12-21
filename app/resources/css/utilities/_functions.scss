@@ -10,31 +10,20 @@
 	}
 }
 
-
 // Grid mixins
 @mixin make-grid-columns($class, $breakpoint, $grid-columns: 12){
 	@include breakpoint($breakpoint){
 		@for $i from 1 through $grid-columns {
 			.#{$class}-#{$i} {
-				@include span($i no-gutter);
-
-				.nested-row {
-					margin-left: -1 * gutter() * ($grid-columns / $i);
-					margin-right: -1 * gutter() * ($grid-columns / $i);
-				}
+				@include span($i);
+			}
+			.#{$class}-offset-#{$i} {
+				@include push($i);
 			}
 		}
-	}
-}
 
-@mixin make-grid-gutters($list: (), $classes: ("sm", "md", "lg"), $grid-columns: 12) {
-	@each $class in $classes {
-		@for $i from 1 through $grid-columns {
-			$list: $list, unquote('.#{$class}-#{$i}');
+		.hidden-#{$class} {
+			display: none;
 		}
-	}
-
-	#{$list} {
-		@include gutter();
 	}
 }
