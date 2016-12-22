@@ -11,7 +11,6 @@ $font-weight-bold:       600;
 // COLORS
 $white: #fff;
 $black: #000;
-$ui-grey-light    		: #d1d3d2;
 
 // BODY STYLES
 $body-bg: $white;
@@ -39,9 +38,3 @@ $xlarge:  1200px;
 //$mediumMax: $large - 1;
 //$largeMax:  $xlarge - 1;
 //$xlargeMax: 10000px;
-
-// content padding
-$section-top-padding: 60px;
-$co-top-padding: 30px;
-$outer-padding: percentage(45/1024);
-$outer-padding-no-gutter: percentage(30/1024);
