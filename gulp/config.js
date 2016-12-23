@@ -22,7 +22,8 @@ module.exports = {
 			cleanCss: true,
 			favicons: true,
 			cssStats: true,
-			typescript: true
+			typescript: true,
+			webpack: true
 		},
 		uglifyExceptions: []
     },
