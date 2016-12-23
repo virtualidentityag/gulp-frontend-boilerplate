@@ -8,7 +8,15 @@
   },
   "license": "MIT",
   "scripts": {
-    "postinstall": "bower install && typings install --global"
+    "install": "napa",
+    "postinstall": "typings install --global"
+  },
+  "napa": {
+    "vi-css-helper": "virtualidentityag/vi-css-helper",
+    "jQuery.DebouncedResize": "AndrewDryga/jQuery.DebouncedResize#v1.0.1",
+    "media-match": "weblinc/media-match#v2.0.2",
+    "conditional-resource-loader": "virtualidentityag/conditional-resource-loader#1.0.1",
+    "enquire": "https://github.com/WickyNilliams/enquire.js#v2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "6.3.6",
@@ -72,12 +80,17 @@
     "gulp-zetzer": "1.0.4",
     "handlebars": "4.0.5",
     "htmlhint-stylish": "1.0.3",
+    "jquery": "3.1.0",
+    "jquery-debouncedwidth": "git+https://github.com/janrembold/jquery-debouncedwidth#v1.1.3",
     "jshint-stylish": "2.1.0",
     "lodash": "4.13.1",
     "main-bower-files": "2.13.1",
     "merge-stream": "1.0.0",
+    "modernizr": "3.3.1",
     "modr-typescript": "git+https://github.com/janrembold/modr-typescript.git",
+    "napa": "^2.3.0",
     "node-resemble-js": "0.0.5",
+    "normalize.css": "4.2.0",
     "opn": "4.0.1",
     "require-dir": "0.3.0",
     "run-sequence": "1.1.5",
@@ -88,5 +101,6 @@
   },
   "engines": {
     "node": ">=5.9.0"
-  }
+  },
+  "dependencies": {}
 }

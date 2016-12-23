@@ -5,13 +5,14 @@ var projectConfig = require('../projectConfig.json');
 var src  = 'app';
 var dev  = '.tmp';
 var dist = 'dist';
-
+var node = 'node_modules';
 
 module.exports = {
     global: {
         src:  src,
         dev:  dev,
         dist: dist,
+		node: node,
 		resources: ['/resources'],
 		tasks: {
 			linting: true,
@@ -24,7 +25,8 @@ module.exports = {
 			cssStats: true,
 			typescript: true
 		},
-		uglifyExceptions: []
+		uglifyExceptions: [],
+		externalResources: {}
     },
 
     //=== Plugins ===//
