@@ -98,6 +98,21 @@ We compile the CSS stylesheets from SASS. To organize the code as efficient as p
 see https://github.com/virtualidentityag/viFrontendStandards/wiki/vi-BEM  
 
 
+###React
+
+All react files go to /resources/react/ folder. The entry points of each React application must start in this folder, all necessary includes should lie in a dedicated application folder.
+All React files end with .jsx.
+
+Example for an app called "test":
+
+/resources/react/test.jsx
+/resources/react/test/TestClass1.jsx
+/resources/react/test/TestClass2.jsx
+and so on...
+
+https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+
+
 ##Development
 
 run the boilerplate with `gulp serve`
