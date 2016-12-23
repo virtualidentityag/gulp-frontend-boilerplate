@@ -32,6 +32,7 @@ gulp.task('build:dev', function (callback) {
 			'zetzer',
 			'sass',
             'typescript',
+			'webpack',
             'main-bower-files',
 			'indexr',
 			'copy:dev:js:vendor'
@@ -105,7 +106,8 @@ gulp.task('serve', function (callback) {
 			'watch:angularTemplates',
 			'watch:json',
 			'watch:html',
-			'watch:typescript'
+			'watch:typescript',
+			'watch:webpack'
 		],
 		callback
 	);
