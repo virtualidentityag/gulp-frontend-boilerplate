@@ -26,7 +26,8 @@
 			"jquery": "dist/jquery.js",
 			"enquire": "dist/enquire.js",
 			"jquery-debouncedwidth": "js/jquery.debouncedwidth.js",
-			"normalize.css": "normalize.css"
+			"normalize.css": "normalize.css",
+			"handlebars": "dist/handlebars.runtime.js"
 		}
 	}
 }
