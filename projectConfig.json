@@ -28,7 +28,8 @@
 			"enquire": "dist/enquire.js",
 			"jquery-debouncedwidth": "js/jquery.debouncedwidth.js",
 			"normalize.css": "normalize.css",
-			"handlebars": "dist/handlebars.runtime.js"
+			"handlebars": "dist/handlebars.runtime.js",
+			"react-lite": "dist/react-lite.js"
 		}
 	}
 }
