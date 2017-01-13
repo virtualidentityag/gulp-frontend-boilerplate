@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var mergeStream = require('merge-stream');
 var config = require('./../config');
+var debug = require('gulp-debug');
+var filter = require('gulp-filter');
 
 gulp.task('copy:dev:js', function () {
 
@@ -9,6 +11,44 @@ gulp.task('copy:dev:js', function () {
 			.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
 	}));
 
+});
+
+gulp.task('copy:dev:npm:js', function () {
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		var object = config.global.externalResources;
+
+		return mergeStream(Object.keys(object).map(function(key, index) {
+			if( typeof object[key] === 'string' ) {
+				object[key] = [object [key]];
+			}
+
+			return mergeStream(object[key].map(function(file) {
+				return gulp.src(config.global.node + '/' + key + '/' + file)
+					.pipe(filter('*.js'))
+					.pipe(gulp.dest(config.global.dev + currentResource + '/js/vendor/'));
+			}));
+		}));
+
+	}));
+});
+
+gulp.task('copy:dev:npm:css', function () {
+	return mergeStream(config.global.resources.map( function(currentResource) {
+		var object = config.global.externalResources;
+
+		return mergeStream(Object.keys(object).map(function(key, index) {
+			if( typeof object[key] === 'string' ) {
+				object[key] = [object [key]];
+			}
+
+			return mergeStream(object[key].map(function(file) {
+				return gulp.src(config.global.node + '/' + key + '/' + file)
+					.pipe(filter('*.css', '*.scss'))
+					.pipe(gulp.dest(config.global.dev + currentResource + '/css/vendor/'));
+			}));
+		}));
+
+	}));
 });
 
 gulp.task('copy:dev:js:vendor', function () {

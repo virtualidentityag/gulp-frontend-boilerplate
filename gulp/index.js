@@ -21,8 +21,10 @@ gulp.task('build:dev', function (callback) {
 			'lint:json',
 			'lint:typescript',
 			'jshint',
-			//'eslint',
-			'iconfont'
+			'eslint',
+			'iconfont',
+			'copy:dev:npm:js',
+			'copy:dev:npm:css'
 		],
 		[
 			'handlebars',
@@ -33,7 +35,6 @@ gulp.task('build:dev', function (callback) {
 			'sass',
             'typescript',
 			'webpack',
-            'main-bower-files',
 			'indexr',
 			'copy:dev:js:vendor'
 		],
@@ -63,9 +64,6 @@ gulp.task('build', function (callback) {
 			'copy:dist:css',
 			'copy:dist:mock',
 			'copy:dist:hbs'
-		],
-		[
-			'copy:dist:js:vendor'
 		],
 		[
 			'uglify:dist',
