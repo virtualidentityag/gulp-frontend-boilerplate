@@ -12,10 +12,10 @@ gulp.task('webpack', function() {
 
 	if (config.global.tasks.webpack) {
 		return mergeStream(config.global.resources.map( function(currentResource) {
-			return gulp.src(config.global.src + currentResource + '/js/*.jsx')
+			return gulp.src(config.global.src + currentResource + '/jsx/*.jsx')
 				.pipe(named())
 				.pipe(webpack(webpackConfig))
-				.pipe(gulp.dest(config.global.dev + currentResource + '/js/'));
+				.pipe(gulp.dest(config.global.dev + currentResource + '/jsx/'));
 		}));
 	} else {
 		gutil.log(gutil.colors.yellow('webpack disabled'));
@@ -28,7 +28,7 @@ gulp.task('watch:webpack', function () {
 	if (config.global.tasks.webpack) {
 		config.global.resources.forEach(function (currentResource) {
 			watch([
-				config.global.src + currentResource + '/js/**/*.jsx'
+				config.global.src + currentResource + '/jsx/**/*.jsx'
 			], function () {
 				runSequence(
 					['webpack']
