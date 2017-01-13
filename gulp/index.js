@@ -74,8 +74,7 @@ gulp.task('build', function (callback) {
 		],
 		[
 			'useref:assets',
-			'image:assets:dist',
-			'image:resources:dist',
+			'image:dist',
 			'favicons'
 		],
 		[

@@ -14,7 +14,8 @@
 			"favicons": true,
 			"cssStats": true,
 			"typescript": true,
-			"webpack": true
+			"webpack": true,
+			"image": true
 		},
 		"uglifyExceptions": [
 			"filename.js"
