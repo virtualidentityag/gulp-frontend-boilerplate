@@ -9,27 +9,29 @@ Why we made this and what you can do with this.
 ### 1. Node.js and NPM
 
 **Node.js** is a JavaScript runtime which will allow us to run a host of tools. In fact node.js even runs a tiny webserver which will enable you to browse the components of the frontend.
-**NPM** is the Node Package Manager which will allow us to download and install required components for Node.js with ease.
+**NPM** is the Node Package Manager and is only used to install yarn.
 
 1. Install as instructed on <http://nodejs.org>.
 2. (On Windows if asked) choose to also install NPM and add Node.js to your path.
 3. Check the installation of Node.js and NPM by running `node -v` or `npm -v` from your command line.
 
-### 2. Gulp
+### 2. yarn
+**yarn** is a Node Package Manager which will allow us to download and install required components for Node.js with ease
+See <https://yarnpkg.com/> for details of this dependency manager
+
+1. Run `npm install -g yarn` to install yarn dependency manager 
+1a. (On windows) You can also get the installer from <https://yarnpkg.com/en/docs/install>.
+
+### 3. Gulp
 
 **Gulp** is a task automator running on Node.js. It will do a lot of hard work for us preparing the source code for productive use. Amongst others Gulp combines files, shrinks them, tests code for faults etc.
 
-1. Run `npm install -g gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
+1. Run `yarn global add gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
 2. Test the installation of Gulp by running `gulp --version` from your command line.
-
-### 3. Bower
-
-1. Run `npm install -g bower` from your command line to install Bower and have it globally available.
-2. Test the installation of Bower by entering `bower --version` from your command line.
 
 ### 4. Typings
 
-1. Run `npm install -g typings` from your command line to install Typings and have it globally available.
+1. Run `yarn global add typings` from your command line to install Typings and have it globally available.
 2. Test the installation of Typings by entering `typings --version` from your command line.
 
 
@@ -39,10 +41,14 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `npm install` (`bower install` and `typings install --global` are launched automatically)
+3. Run `yarn install` (`napa install` and `typings install --global` are launched automatically)
 4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
+
+## napa
+
+napa <https://github.com/shama/napa> is be used to install packages that are no valid npm/yarn packages (packages not containing an package.json).
 
 ##Custom Configuration
 
@@ -61,6 +67,12 @@ __tasks__
 To disable certain tasks, simply set the specific task to false. 
 At the moment the tasks that can be disabled are: "linting", "iconfont", "angular", "handlebars", "uglify", "cleanCss", "favicons", "cssStats".
 Per default all tasks are enabled.
+
+__uglifyExceptions__
+You can add files which should not be uglified during the uglify task (e.g. files that are already uglified)
+
+__externalResources__
+Add file paths of files that are needed for the build package. The path must be relative to each package inside node_modules.
 
 ##Patterns
 
