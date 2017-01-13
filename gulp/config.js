@@ -27,7 +27,6 @@ module.exports = {
 			image: true,
 			webpack: true
 		},
-		uglifyExceptions: [],
 		externalResources: {}
     },
 
@@ -119,15 +118,13 @@ module.exports = {
         }
     },
 
-    typescript: {
-		noImplicitAny: true,
-		suppressImplicitAnyIndexErrors: true,
-		module: 'umd',
-		target: 'ES5'
-    },
+    typescript: {},
 
     uglify: {
-        preserveComments: 'license'
+        preserveComments: 'license',
+		sourcemaps: false,
+		folders: ['js', 'ts', 'jsx'],
+		ignoreList: []
     },
 
     zetzer: {
