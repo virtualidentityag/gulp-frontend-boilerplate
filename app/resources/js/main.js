@@ -1,6 +1,11 @@
 (function ($, window, document, undefined) {
 	'use strict';
 
+	// set ReactDOM
+	if(window.React && window.React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED && !window.ReactDOM) {
+		window.ReactDOM = React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+	}
+
 	$(document).ready(function () {
 		var $conditionalResources = $('[data-resources]');
 

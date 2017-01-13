@@ -6,3 +6,5 @@ $susy: (
 	gutter-position: inside-static,
 	global-box-sizing: border-box
 );
+
+@include border-box-sizing;
