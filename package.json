@@ -8,8 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "install": "napa",
-    "postinstall": "typings install --global"
+    "install": "napa"
   },
   "napa": {
     "vi-css-helper": "virtualidentityag/vi-css-helper",
