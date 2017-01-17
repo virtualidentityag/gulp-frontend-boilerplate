@@ -8,8 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "install": "napa",
-    "postinstall": "typings install --global"
+    "install": "napa"
   },
   "napa": {
     "vi-css-helper": "virtualidentityag/vi-css-helper",
@@ -19,6 +18,7 @@
     "enquire": "https://github.com/WickyNilliams/enquire.js#v2.1.2"
   },
   "dependencies": {
+    "@types/jquery": "2.0.39",
     "breakpoint-sass": "2.7.1",
     "handlebars": "4.0.5",
     "jquery": "3.1.0",
@@ -85,7 +85,7 @@
     "gulp-tslint": "6.0.2",
     "gulp-ttf2eot": "1.1.1",
     "gulp-ttf2woff": "1.1.0",
-    "gulp-typescript": "2.13.6",
+    "gulp-typescript": "3.1.4",
     "gulp-uglify": "1.5.3",
     "gulp-useref": "3.1.0",
     "gulp-util": "3.0.7",
@@ -97,7 +97,6 @@
     "lodash": "4.13.1",
     "merge-stream": "1.0.0",
     "modernizr": "3.3.1",
-    "modr-typescript": "git+https://github.com/janrembold/modr-typescript.git",
     "napa": "2.3.0",
     "node-resemble-js": "0.0.5",
     "opn": "4.0.1",
@@ -105,6 +104,7 @@
     "run-sequence": "1.1.5",
     "serve-static": "1.10.2",
     "tslint": "3.14.0",
+    "typescript": "2.1.5",
     "vi-custom-assertions-commands": "git+https://github.com/virtualidentityag/vi-custom-assertions-commands.git#master",
     "vinyl-named": "1.1.0",
     "webpack-stream": "3.2.0",

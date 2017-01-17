@@ -35,8 +35,7 @@ gulp.task('build:dev', function (callback) {
 			'sass',
             'typescript',
 			'webpack',
-			'indexr',
-			'copy:dev:js:vendor'
+			'indexr'
 		],
 		[
 			'modernizr',
@@ -55,7 +54,12 @@ gulp.task('build', function (callback) {
 			'build:dev'
 		],
 		[
-			'copy:dev:js',
+			'copy:dev:js'
+		],
+		[
+			'copy:dist:js',
+			'copy:dist:jsx',
+			'copy:dist:ts',
 			'copy:dist:flash',
 			'copy:dist:json',
 			'copy:dist:fonts',

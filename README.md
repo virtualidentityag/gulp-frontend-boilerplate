@@ -29,11 +29,6 @@ See <https://yarnpkg.com/> for details of this dependency manager
 1. Run `yarn global add gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
 2. Test the installation of Gulp by running `gulp --version` from your command line.
 
-### 4. Typings
-
-1. Run `yarn global add typings` from your command line to install Typings and have it globally available.
-2. Test the installation of Typings by entering `typings --version` from your command line.
-
 
 ##Starting
 
@@ -41,7 +36,7 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `yarn install` (`napa install` and `typings install --global` are launched automatically)
+3. Run `yarn install` (`napa install` is launched automatically)
 4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
@@ -192,10 +187,6 @@ Download and install imageMagick: http://www.imagemagick.org
 run the boilerplate with `gulp build`
 If everything is correct, you will find a build version of your code in the **dist** directory.
 This contains among others a min and concat version of your js and css files
-
-##Important
-When you want to add a bower package, make sure its bower.json has defined a main file. Otherwise you have to add a main file to the override section in [this projects bower.json file](./bower.json).
-This will trigger the gulp task to only pull out the main files of the packages to prevent storage size overhead.
 
 ##Release
 There is a gulp task for doing releases. Use gulp release --type=[major,minor,patch,prerelease] will do the following steps for you:
