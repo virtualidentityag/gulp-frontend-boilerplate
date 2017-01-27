@@ -36,14 +36,10 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `yarn install` (`napa install` is launched automatically)
+3. Run `yarn install`
 4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
-
-## napa
-
-napa <https://github.com/shama/napa> is be used to install packages that are no valid npm/yarn packages (packages not containing an package.json).
 
 ##Custom Configuration
 
@@ -149,7 +145,7 @@ perform commands and assertions on DOM elements.
 There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
 local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
 
-**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal.
+**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal. Install mocha globally.
 
 ###gulp test
 
