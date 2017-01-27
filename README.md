@@ -41,14 +41,10 @@ After your are finished with the step before and everything runs fine, run these
 
 1. Open your command line / terminal / bash
 2. Navigate to the project folder
-3. Run `yarn install` (`napa install` and `typings install --global` are launched automatically)
+3. Run `yarn install` (`typings install --global` are launched automatically)
 4. To
 	* **start** the development environment run `gulp serve`
 	* **build** the code for production use run `gulp build`
-
-## napa
-
-napa <https://github.com/shama/napa> is be used to install packages that are no valid npm/yarn packages (packages not containing an package.json).
 
 ##Custom Configuration
 
