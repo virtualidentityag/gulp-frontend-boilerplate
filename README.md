@@ -145,7 +145,7 @@ perform commands and assertions on DOM elements.
 There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
 local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
 
-**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal.
+**Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal. Install mocha globally.
 
 ###gulp test
 
