@@ -24,7 +24,7 @@
 			"vi-css-helper": ["helper.css", "print.css"],
 			"jQuery.DebouncedResize": "js/jquery.debouncedresize.js",
 			"media-match": "media.match.js",
-			"conditional-resource-loader": "resourceLoader.js",
+			"conditional-resource-loader": "src/resourceLoader.js",
 			"jquery": "dist/jquery.js",
 			"enquire": "dist/enquire.js",
 			"jquery-debouncedwidth": "js/jquery.debouncedwidth.js",

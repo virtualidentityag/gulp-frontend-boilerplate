@@ -12,17 +12,17 @@
     "postinstall": "typings install --global"
   },
   "napa": {
-    "vi-css-helper": "virtualidentityag/vi-css-helper",
-    "jQuery.DebouncedResize": "AndrewDryga/jQuery.DebouncedResize#v1.0.1",
-    "media-match": "weblinc/media-match#v2.0.2",
-    "conditional-resource-loader": "virtualidentityag/conditional-resource-loader#1.0.1",
-    "enquire": "https://github.com/WickyNilliams/enquire.js#v2.1.2"
+    "vi-css-helper": "virtualidentityag/vi-css-helper"
   },
   "dependencies": {
     "breakpoint-sass": "2.7.1",
+    "conditional-resource-loader": "git+https://github.com/virtualidentityag/conditional-resource-loader#1.1.0",
+    "enquire": "git+https://github.com/WickyNilliams/enquire.js#v2.1.2",
     "handlebars": "4.0.5",
     "jquery": "3.1.0",
     "jquery-debouncedwidth": "git+https://github.com/janrembold/jquery-debouncedwidth#v1.1.3",
+    "jQuery.DebouncedResize": "git+https://github.com/virtualidentityag/jQuery.DebouncedResize#a7f9e568102bf8be754fd090a1856173e0199531",
+    "media-match": "git+https://github.com/virtualidentityag/media-match#b115b6111f831db886f2aa938ccb050f9d6a0419",
     "normalize.css": "4.2.0",
     "react-lite": "0.15.30",
     "susy": "2.2.12"
