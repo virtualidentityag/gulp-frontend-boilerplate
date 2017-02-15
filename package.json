@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/jquery": "2.0.39",
     "breakpoint-sass": "2.7.1",
-    "conditional-resource-loader": "git+https://github.com/virtualidentityag/conditional-resource-loader#1.1.0",
+    "conditional-resource-loader": "git+https://github.com/virtualidentityag/conditional-resource-loader#1.2.1",
     "enquire": "git+https://github.com/WickyNilliams/enquire.js#v2.1.2",
     "handlebars": "4.0.5",
     "jQuery.DebouncedResize": "git+https://github.com/virtualidentityag/jQuery.DebouncedResize#1.0.2",
