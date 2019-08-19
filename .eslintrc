@@ -20,7 +20,10 @@
     ],
     "indent": [
       2,
-      "tab"
+      "tab",
+      {
+        "SwitchCase": 1
+      }
     ],
     "linebreak-style": [
       2,
@@ -51,7 +54,8 @@
 	  ],
 	  "no-trailing-spaces": [
 		  "warn"
-	  ]
+	  ],
+    "key-spacing": 1
   },
   "env": {
     "es6": true,
